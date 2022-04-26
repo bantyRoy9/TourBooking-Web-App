@@ -15,18 +15,18 @@ if (mapBox) {
     const locations = JSON.parse(mapBox.dataset.locations);
     displayMap(locations)
 }
-if(signupbtn){
-    signupbtn.addEventListener('submit', e =>{
-        e.preventDefault();
-        // console.log('work');
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-        const passwordconfirm = document.getElementById('passwordconfirm').value;
-        // signup(name,email,password,passwordconfirm);
-        alert('Still developing mode....')
-    });
-}
+// if(signupbtn){
+//     signupbtn.addEventListener('submit', e =>{
+//         e.preventDefault();
+//         // console.log('work');
+//         const name = document.getElementById('name').value;
+//         const email = document.getElementById('email').value;
+//         const password = document.getElementById('password').value;
+//         const passwordconfirm = document.getElementById('passwordconfirm').value;
+//         // signup(name,email,password,passwordconfirm);
+//         alert('Still developing mode....')
+//     });
+// };
 if (loginbtn) {
     loginbtn.addEventListener('submit', e => {
         e.preventDefault();
