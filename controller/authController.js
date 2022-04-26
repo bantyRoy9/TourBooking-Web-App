@@ -40,7 +40,7 @@ exports.signUp = catchAsync(async (req, res, next) => {
         passwordconfirm: req.body.passwordconfirm
     });
     const url = `${req.protocol}://${req.get('host')}/me`;
-    console.log(url);
+    // console.log(url);
     await new Email(newUser, url).sendWelcome()
     createSendToken(newUser, 201, res)
 
@@ -187,7 +187,7 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
     const hashedToken = crypto.createHash('sha256').update(req.params.token).digest('hex')
 
     const user = await User.findOne({ passwordResetToken: hashedToken, passwordResetExpire: { $gt: Date.now() } })
-    console.log(user);
+    // console.log(user);
     if (!user) {
         return next(new AppError('Token has Invalid or has expired', 400))
     }

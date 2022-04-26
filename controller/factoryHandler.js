@@ -5,9 +5,9 @@ const APIFeaturs = require('./../utils/apiFeature')
 
 
 exports.createOne = Modal => catchAsync(async (req, res)=>{
-    console.log(req.body);
+    // console.log(req.body);
     const doc = await Modal.create(req.body);
-    console.log(doc);
+    // console.log(doc);
     res.status(201).json({
         status:'success',
         data:{

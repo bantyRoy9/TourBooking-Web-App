@@ -6,7 +6,7 @@ const factory = require('./../controller/factoryHandler')
 exports.getCheckoutSession = catchAsync(async (req, res, next) => {
 
     const tour = await Tour.findById(req.params.tourId);
-    console.log(tour);
+    // console.log(tour);
     const session = await stripe.checkout.sessions.create({
         payment_method_types: ['card'],
         success_url: `${req.protocol}://${req.get('host')}/?tour=${req.params.tourId}&user=${req.user.id}&price=${tour.price}`,

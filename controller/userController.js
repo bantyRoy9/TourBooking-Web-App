@@ -58,7 +58,7 @@ exports.deleteUser = deleteOne(User);
 
 
 exports.updateUserData =catchAsync(async(req, res,next)=>{
-    console.log(req.body);
+    // console.log(req.body);
     if(req.body.password || req.body.passwordconfirm ){
         return next( new AppError('This Route is not for password updates. please use /updateMyPassword', 400))
     }

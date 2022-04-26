@@ -7,12 +7,12 @@ export const signup = async (name, email, password, passwordconfirm) => {
 
         const res = await axios({
             method: 'POST',
-            url: 'http://localhost:8000/api/v1/users/signUp',
+            url: '/api/v1/users/signUp',
             data: {
                 name, email, password, passwordconfirm
             }
         });
-        console.log(res);
+        // console.log(res);
 
         if (res.data.status === 'success') {
             showAlert('success', 'User SignUp successful!')
@@ -30,14 +30,14 @@ export const login = async (email, password) => {
         console.log(email, password);
         const res = await axios({
             method: 'POST',
-            url: 'http://localhost:8000/api/v1/users/login',
+            url: '/api/v1/users/login',
             data: {
                 email,
                 password
             }
 
         });
-        console.log(res);
+        // console.log(res);
 
         if (res.data.status === 'success') {
             showAlert('success', 'logged in successful!')
@@ -54,7 +54,7 @@ export const logout = async (req, res, next) => {
     try {
         const res = await axios({
             method: 'GET',
-            url: 'http://localhost:8000/api/v1/users/logout',
+            url: '/api/v1/users/logout',
         });
         if ((res.data.status = 'success')) location.reload(true);
     } catch (err) {

@@ -6671,7 +6671,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.displayMap = void 0;
 
 var displayMap = function displayMap(locations) {
-  console.log('work');
+  // console.log('work');
   mapboxgl.accessToken = 'pk.eyJ1IjoiYmFudHk5NzE2IiwiYSI6ImNreW43YXBxMjFhangydXBrbWhmMnVreXgifQ.zpJZbJIuwM98HKQu69i1-g';
   var map = new mapboxgl.Map({
     container: 'map',
@@ -8862,7 +8862,7 @@ var signup = /*#__PURE__*/function () {
             _context.next = 3;
             return (0, _axios.default)({
               method: 'POST',
-              url: 'http://localhost:8000/api/v1/users/signUp',
+              url: '/api/v1/users/signUp',
               data: {
                 name: name,
                 email: email,
@@ -8873,8 +8873,8 @@ var signup = /*#__PURE__*/function () {
 
           case 3:
             res = _context.sent;
-            console.log(res);
 
+            // console.log(res);
             if (res.data.status === 'success') {
               (0, _alert.showAlert)('success', 'User SignUp successful!');
               window.setTimeout(function () {
@@ -8882,20 +8882,20 @@ var signup = /*#__PURE__*/function () {
               }, 1500);
             }
 
-            _context.next = 11;
+            _context.next = 10;
             break;
 
-          case 8:
-            _context.prev = 8;
+          case 7:
+            _context.prev = 7;
             _context.t0 = _context["catch"](0);
             (0, _alert.showAlert)('error', _context.t0.response.data.message);
 
-          case 11:
+          case 10:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[0, 8]]);
+    }, _callee, null, [[0, 7]]);
   }));
 
   return function signup(_x, _x2, _x3, _x4) {
@@ -8917,7 +8917,7 @@ var login = /*#__PURE__*/function () {
             _context2.next = 4;
             return (0, _axios.default)({
               method: 'POST',
-              url: 'http://localhost:8000/api/v1/users/login',
+              url: '/api/v1/users/login',
               data: {
                 email: email,
                 password: password
@@ -8926,8 +8926,8 @@ var login = /*#__PURE__*/function () {
 
           case 4:
             res = _context2.sent;
-            console.log(res);
 
+            // console.log(res);
             if (res.data.status === 'success') {
               (0, _alert.showAlert)('success', 'logged in successful!');
               window.setTimeout(function () {
@@ -8935,20 +8935,20 @@ var login = /*#__PURE__*/function () {
               }, 1500);
             }
 
-            _context2.next = 12;
+            _context2.next = 11;
             break;
 
-          case 9:
-            _context2.prev = 9;
+          case 8:
+            _context2.prev = 8;
             _context2.t0 = _context2["catch"](0);
             (0, _alert.showAlert)('error', _context2.t0.response.data.message);
 
-          case 12:
+          case 11:
           case "end":
             return _context2.stop();
         }
       }
-    }, _callee2, null, [[0, 9]]);
+    }, _callee2, null, [[0, 8]]);
   }));
 
   return function login(_x5, _x6) {
@@ -8970,7 +8970,7 @@ var logout = /*#__PURE__*/function () {
             _context3.next = 3;
             return (0, _axios.default)({
               method: 'GET',
-              url: 'http://localhost:8000/api/v1/users/logout'
+              url: '/api/v1/users/logout'
             });
 
           case 3:
@@ -9023,7 +9023,7 @@ var updateAccountSetting = /*#__PURE__*/function () {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            url = type === 'password' ? 'http://localhost:8000/api/v1/users/updatePassword' : 'http://localhost:8000/api/v1/users/updateMe';
+            url = type === 'password' ? '/api/v1/users/updatePassword' : '/api/v1/users/updateMe';
             _context.prev = 1;
             _context.next = 4;
             return (0, _axios.default)({
@@ -9094,7 +9094,7 @@ var bookTour = /*#__PURE__*/function () {
           case 0:
             _context.prev = 0;
             _context.next = 3;
-            return (0, _axios.default)("http://localhost:8000/api/v1/bookings/checkout-session/".concat(tourId));
+            return (0, _axios.default)("/api/v1/bookings/checkout-session/".concat(tourId));
 
           case 3:
             session = _context.sent;
@@ -9105,16 +9105,16 @@ var bookTour = /*#__PURE__*/function () {
             });
 
           case 7:
-            _context.next = 13;
+            _context.next = 12;
             break;
 
           case 9:
             _context.prev = 9;
             _context.t0 = _context["catch"](0);
-            console.log(_context.t0);
+            // console.log(err);
             (0, _alert.showAlert)('error', _context.t0);
 
-          case 13:
+          case 12:
           case "end":
             return _context.stop();
         }
@@ -9422,8 +9422,8 @@ if (mapBox) {
 
 if (signupbtn) {
   signupbtn.addEventListener('submit', function (e) {
-    e.preventDefault();
-    console.log('work');
+    e.preventDefault(); // console.log('work');
+
     var name = document.getElementById('name').value;
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
@@ -9435,11 +9435,11 @@ if (signupbtn) {
 
 if (loginbtn) {
   loginbtn.addEventListener('submit', function (e) {
-    e.preventDefault();
-    console.log('work');
+    e.preventDefault(); // console.log('work');
+
     var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
-    console.log(email, password);
+    var password = document.getElementById('password').value; // console.log(email, password);
+
     (0, _login.login)(email, password);
   });
 }
@@ -9500,8 +9500,8 @@ if (updatePassbtn) {
 if (bookingbtn) {
   bookingbtn.addEventListener('click', function (e) {
     e.target.textContent = 'processing ...';
-    var tourId = e.target.dataset.tourId;
-    console.log(tourId);
+    var tourId = e.target.dataset.tourId; // console.log(tourId);
+
     (0, _stripe.bookTour)(tourId);
   });
 }
@@ -9533,7 +9533,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56637" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52443" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
