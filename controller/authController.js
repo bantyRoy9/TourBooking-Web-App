@@ -33,6 +33,7 @@ const createSendToken = (user, statusCode, res) => {
 }
 
 exports.signUp = catchAsync(async (req, res, next) => {
+    console.log(req.body);
     const newUser = await User.create({
         name: req.body.name,
         email: req.body.email,
@@ -102,7 +103,7 @@ exports.protect = catchAsync(async (req, res, next) => {
     }
 
     const decoder = await promisify(jwt.verify)(token, process.env.jwt_secret);
-    console.log(decoder);
+    // console.log(decoder);
 
     const currentUser = await User.findById(decoder.id)
     if (!currentUser) {

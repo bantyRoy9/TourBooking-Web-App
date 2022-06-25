@@ -6,7 +6,8 @@ const helmets = require('helmet');
 const xss = require('xss-clean');
 const path = require('path');
 const hpp = require('hpp');
-const cors = require('cors')
+const cors = require('cors');
+const bodyParser = require('body-parser')
 
 const globleErrorHandler = require('./controller/errorController');
 const AppError = require('./utils/appError');
@@ -26,6 +27,7 @@ const limiter = applimit({
 })
 app.use('/api', limiter);
 app.use(express.json({ limit: '14kb' }));
+app.use(bodyParser())
 app.use(express.urlencoded({ extended: true, limit: '14kb' }));
 app.use(cookieparser());
 app.use(sanitize());

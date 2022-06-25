@@ -205,6 +205,9 @@ exports.getMontlyPlan = catchAsync(async (req, res,next)=>{
                plan
             }})
 })
+
+
+
 exports.getAllTour = getAll(Tour)
 
 exports.createTour = createOne(Tour);

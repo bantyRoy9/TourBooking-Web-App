@@ -1,0 +1,19 @@
+.tourPlan{
+    padding: 20px 10px;
+    font-family: var(--body-font-family);
+}
+.tourPlan-step{
+    font-weight: 300;
+    font-size: 18px;
+    color: rgb(7, 132, 146);
+
+}
+.tourPlan-place{
+    margin: 20px 0px ;
+    font-size: 22px;
+    letter-spacing: -0.06em;
+}
+.tourPlan-place-description{
+    width: 97%;
+    color: #3d3d3d;
+}

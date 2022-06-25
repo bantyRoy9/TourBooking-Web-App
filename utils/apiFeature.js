@@ -3,7 +3,18 @@ class APIFeaturs {
         this.query = query,
         this.queryString = queryString
     }
-
+    search(){
+            const searchKeyword = this.queryString.search
+            ?{
+                name:{
+                    $regex: this.queryString.search,
+                    $options:'i'
+                }
+            }:
+            {};
+            this.query = this.query.find({...searchKeyword})
+        return this;
+    }
     filter(){
         const queryObj = {...this.queryString};
         const excludeObj = ['page','filter','sort','limit'];
@@ -43,9 +54,9 @@ class APIFeaturs {
         return this;
     }
 
-    pagination(){
+    pagination(pageLimit){
         const page = this.queryString.page*1 || 1;
-        const limits = this.queryString.limit*1 || 100;
+        const limits = this.queryString.limit*1 || pageLimit;
         const skip = (page-1) * limits;
 
         this.query = this.query.skip(skip).limit(limits);

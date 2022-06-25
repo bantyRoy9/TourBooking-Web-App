@@ -61,23 +61,31 @@ exports.updateOne = Modal => catchAsync(async(req,res,next)=>{
 });
 
 exports.getAll = Modal => catchAsync(async(req,res)=>{
+    let resultPerpage = 8;
+  const docCount = await Modal.countDocuments();
 
     let filter = {};
     if(req.params.tourId) filter = { tour : req.params.tourId}
     const features = new APIFeaturs(Modal.find({}), req.query)
+    .search()
     .filter()
     .sort()
     .fields()
-    .pagination();
+    .pagination(resultPerpage);
 
-    const tours = await features.query;
+    let tours = await features.query;
 
-    // const getAllTour = await Tour.find().where('duration').equals('5');
+    let filterdCount = tours.length;
+
+
+
     res.status(200).json({
         status:'success',
         length:tours.length,
         data:{
-            AllTours: tours
+            AllTours: tours,
+            length:docCount,
+            resultPerpage
         }
     })
 });

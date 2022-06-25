@@ -1,0 +1,415 @@
+/* .tourPage{
+    height: 100vh;
+    width: 100vw;
+} */
+.tour-slider{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    background-size:100vmax;
+    height: 100vh;
+    margin-top: -150px;
+    /* background-image:url(./../../img/london/destination-london-07.jpg); */
+    background-size: cover;
+
+    
+}
+.tour-slider>img{
+    background-size: cover;
+    height: 50vmax;
+    width: 100vw;
+    z-index: -2;
+}
+.tours-slider{
+    background-image:url(./../../img/london/bgn-heading-01.jpg);
+    height: 80vh;
+}
+.tour-slider::before{
+    content: '';
+    position: absolute;
+    top: 17%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 530px;
+    background-size: cover;
+    background-image: linear-gradient(to right,#1976bc 0%,#8dc645 100%);
+    opacity: .6;
+    z-index: -1;
+}
+.tours-slider::before{
+    height: 243px;
+}
+.tour-title{
+    position: absolute;
+    font-size: 60px;
+    color: white;
+    z-index: 999;
+    font-weight: 800;
+    letter-spacing: -.05rem;
+    margin-top: 90px;
+    line-height: 1rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.tour-infos{
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    position: relative;
+    width: 94vw;
+    height: fit-content;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    align-items: center;
+    background-image:linear-gradient(to right,#1976bc 0%,#8dc645 100%);
+    
+}
+.tour-infos>span{
+    position: absolute;
+    background: #8dc645;
+    color: #fff;
+    margin-bottom: 105px;
+    margin-left:-5px ;
+    padding: 4px 20px;
+}
+.tour-info>i{
+    background:transparent;
+    font-size: 2.5vmax;
+    margin-right:  15px;
+}
+.tour-info{
+    color: #fff;
+    display: flex;
+    padding: 40px 40px;
+    align-items: center;
+}
+.info{
+    display: flex;
+    flex-direction: column;
+    line-height: 20px;
+}
+.info strong{
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -.01rem;
+}
+.info>strong>span{
+    font-size: 10px;
+    font-size: 300;
+}
+.info>strong>i{
+    font-size: 12px;
+    margin-left: -2px;
+}
+.tour-booking-btn{
+    padding-right:30px ;
+    text-transform: capitalize;
+    margin-left: auto;
+}
+.tour-booking-btn a button{
+    font-weight: 550;
+    font-size: 15px;
+    word-spacing: 3px;
+
+}
+.tour-block{
+    display: flex;
+    position: relative;
+    top: 50px;
+    /* padding: 30px; */
+    width: 94vw;
+    margin: auto;
+    /* border: 1px solid red; */
+    /* gap: 50px; */
+}
+/* .tour-block-left,.tour-block-right{ */
+    /* border: 1px solid red; */
+
+/* } */
+.tour-block-left{
+    width: 98%;
+    padding: 10px;
+}
+.tour-block-left_section1{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 99%;
+    height: fit-content;
+    border-bottom: 1px solid #e3e2e2;
+}
+.tbl-span{
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+    word-spacing: 2px;
+    columns: #3d3d3d;
+}
+.tbl-heading{
+    font-size: 3.5em;
+    font-weight: 500;
+    color: #130f0f;
+    line-height: 1;
+    padding: 10px 0px 20px 5px;
+    letter-spacing: -0.05em;
+}
+.tbl-heading strong{
+    font-weight: 800;
+    letter-spacing: normal;
+}
+.tbl-heading strong::before{
+    content: '';
+    position: absolute;
+    width: 195px;
+    margin-left: -5px;
+    height: 22px;
+    z-index: -1;
+    top: 85px;
+    background-image:linear-gradient(to right,#1976bc 0%,#8dc645 100%);
+
+}
+.tbl-description{
+    color: #181818;
+    padding: 10px 1px;
+    letter-spacing: -0.07px;
+    font-size: 1.125em;
+    line-height: 1.5em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-bottom: 50px;
+
+}
+.tour-block-left-footer{
+    width: 100%;
+    margin-top: 120px;
+}
+
+.tbl-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.tbl-btn{
+    padding: 20px 5px;
+}
+
+.tbl-btn button{
+    margin: 10px;
+    padding: 10px 20px;
+    background: #e3e2e2;
+    border: none;
+    color: #3d3d3d;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all .5s;
+}
+.tbl-btn button:hover{
+    background: #1976bc;
+    color: #fff;
+}
+.tbl-social span{
+    padding: 0px 50px 0px 0px;
+    font-family: var(--body-font-family);
+    color: #3d3d3d;
+}
+.tbl-social i{
+    padding: 10px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 12px;
+    margin: 0px 3px;
+    cursor: pointer;
+}
+.tbl-social .fa-facebook-f{
+    background: #023c68;
+
+}
+.tbl-social .fa-twitter{
+    background: #1976bc;
+}
+.tbl-social .fa-linkedin-in{
+    background: #1c4d72;
+}
+.tour-booking-footer button{
+    margin-top: 40px;
+    position: relative;
+    left: 40%;
+}
+
+
+
+
+.tour-block-right{
+    width: 370px;
+    margin-right: 10px;
+}
+.tbr-search h1{
+    font-size: 25px;
+    font-weight: 800;
+    color: #1976bc;
+    letter-spacing: -0.04em;
+    padding: 5px 0px 20px 2px;
+}
+.tbr-search form{
+    background: #e3e2e2;
+    padding: 26px;
+}
+.tbr-search form input{
+    width: 100%;
+    margin: 10px 0px;
+    padding: 15px 3px;
+    outline: none;
+    border: none;
+}
+.tbr-search form input::placeholder{
+    position: relative;
+    left: 10px;
+    text-transform: capitalize;
+}
+.tbr-search form input[type='submit']{
+    background: #1976bc;
+    color: white;
+}
+.tbr-search form input[type='submit']:hover{
+    background-image:linear-gradient(to top,#1976bc 0%,#8dc645 100%);
+    cursor: pointer;
+}
+.tbr-search form input>label{
+    display: flex;
+    border: 10px solid red;
+}
+.tbr-newlate{
+    margin-top: 30px;
+    background: inherit;
+    font-family: var(--body-font-family);
+    /* border: 1px solid red; */
+    background-image:linear-gradient(to right,#1976bc 0%,#8dc645 100%);
+
+}
+.tbr-newlate form{
+    background: inherit;
+    color: white;
+}
+.tbr-newlate form h1{
+    color: #fff;
+}
+
+.tbr-container{
+    width: 290px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.tbr-card{
+    display: flex;
+    width: 22.55vmax;
+    margin: 2vmax 0px;
+}
+
+
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    margin: 3vmax;
+
+
+}
+.page-item{
+    background-color: rgb(255,255,255);
+    padding: 1vmax 1.5vmax;
+    cursor: pointer;
+    border: 1px solid rgba(0,0,0,0.16);
+    list-style: none;
+}
+.page-item:first-child{
+    border-radius:  5px 0 0 5px;
+}
+.page-item:last-child{
+    border-radius: 0 5px 5px 0;
+
+}
+.page-link{
+    color: rgb(80,80,80);
+    font: 300 1vmax 'roboto';
+    transition: all .5s;
+}
+.page-item:hover{
+    background-color: rgb(230,230,230);
+}
+.page-item-active{
+    background-color: #1976bc;
+}
+.page-link-active{
+    color: white;
+}
+
+@media only screen and (max-width:600px) {
+    .tour-block{
+        flex-wrap: wrap;
+    }
+    .tour-slider{
+        margin-top: 0px;
+        height: 50vmax;
+    }
+    .tour-slider>img{
+        height: 70vmax;
+    }
+    .tour-slider::after{
+        top:0;
+    }
+    .tour-title{
+        font-size: 50px;
+        margin-top: 0px;
+        line-height: 50px;
+    }
+    .tour-infos>span{
+        top: 0px;
+    }
+    .tour-infos{
+        top: -70px;
+        border-radius: 10px;
+        justify-content: center;
+        /* width: 100%; */
+    }
+    .tour-info>i{
+        font-size: 3vmax;
+    }
+    .tour-info{
+        padding: 70px 10px 10px 10px;
+    }
+    .tour-booking-btn{
+        padding-right: 0px;
+        margin: 35px auto;
+    }
+    .tbl-heading strong::before{
+        left: 10px;
+        top: 165px;
+    }
+    .header-tour{
+        display: block;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    .header-tour>nav>ul{
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0px;
+    }
+    .header-tour>nav>ul>li{
+        padding: 0px;
+
+    }
+    .tbl-social i{
+        margin: 0px 10px ;
+    }
+    .tour-booking-footer button{
+        left: 20%;
+    }
+    .tbr-container{
+        justify-content: center;
+    }
+    .tbr-card{
+        width: 100%;
+        /* height: 100%; */
+    }
+}   
