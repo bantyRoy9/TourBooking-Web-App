@@ -32,6 +32,7 @@ const UserOption = ({ user }) => {
     }
     function logoutUser(){
         dispatch(userLogout())
+        navigate('/')
     }
 
   return (

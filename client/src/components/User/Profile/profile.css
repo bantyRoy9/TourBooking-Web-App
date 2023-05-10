@@ -42,6 +42,7 @@
     color: #3d3d3d;
     justify-content: space-between;
     transition: all .5s;
+    font-size: 15px;
 }
 .profile-nav>nav i{
     margin-right: 10px;
@@ -118,11 +119,7 @@
 
 }
 .profile-user {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
     font-size: 1.6rem;
   }
@@ -135,14 +132,17 @@
   }
   
   .form__upload {
-    width: 0.1px;
-    height: 0.1px;
-    opacity: 0;
-    overflow: hidden;
-    position: absolute;
-    z-index: -1;
+    /* width: 0.1px; */
+    /* height: 0.1px; */
+    /* opacity: 0; */
+    /* overflow: hidden; */
+    /* position: absolute; */
+    /* z-index: -1; */
+}
+.profile-user>input{
+      border: 1px solid red;
+        display: none;
   }
-  
   .form__upload:focus + label {
     outline: 3px solid #e9eeeb;
     outline-offset: 3px;

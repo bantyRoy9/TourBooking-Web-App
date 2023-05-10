@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { NavLink, useParams, useNavigate } from 'react-router-dom';
 import { getAllTour } from '../../actions/tourAction';
 import TourCard from '../home/TourCard'
-import Form from '../layout/Form/Form';
+import Form from '../layout/FilterForm/FilterForm';
 import Loading from '../layout/Loading/Loading';
 import Pagination from 'react-js-pagination';
 import InputLabel from '@mui/material/InputLabel';

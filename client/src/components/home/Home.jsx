@@ -9,7 +9,7 @@ import { getAllTour } from '../../actions/tourAction';
 import Loading from '../layout/Loading/Loading';
 import TourCard from './TourCard';
 import './home.css'
-import Form from '../layout/Form/Form';
+import Form from '../layout/FilterForm/FilterForm';
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -23,32 +23,36 @@ const Home = () => {
         dispatch(getAllTour())
     }, [dispatch, error, alert])
 
+    const generatePdf =()=>{
+        const element= document.getElementById("containerDownload");
+        console.log(element);
+       // html2pdf().from(element).save();
+    }
     return (
         <>
-            {loading ? <Loading /> : <>
+            {/*loading ? <Loading /> :*/ <>
                 <MetaHead title='Natours' />
                 <div className="banner">
                     <main className='home-slider'>
-                            <div className="home-location"></div>
-                            <div className="home-sublocation"></div>
-
-                            <div className="home-description">Recognizable, lovely,passionate and forever yours ...</div>
-                            <div className="home-slider-btn">
-                                <NavLink to='/des' ><button className='des-btn'>Discover </button></NavLink>
-                                <NavLink to='/booking' ><button className='book-btn'>Book Your Trip </button></NavLink>
-                            </div>
+                        <div className="home-location"></div>
+                        <div className="home-sublocation"></div>
+                        <div className="home-description">Recognizable, lovely,passionate and forever yours ...</div>
+                        <div className="home-slider-btn">
+                            <NavLink to='/des' ><button className='des-btn'>Discover </button></NavLink>
+                            <NavLink to='/booking' ><button className='book-btn'>Book Your Trip </button></NavLink>
+                        </div>
                     </main>
                 </div>
                 <div className="home-form-container">
-                <span>Search Tours</span>
-
-                <Form styles='home-form'/>
+                    <span>Search Tours</span>
+                    <Form styles='home-form'/>
                 </div>
                 <div className='homeHeading'>
                     <span>GREAT PLACES TO VISIT</span>
                     <h1>Search <span className='spans'>and Enjoy</span></h1>
                     <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam explicabo dignissimos ex quod consequuntur facilis repellendus incidunt repudiandae animi iure?</span>
                 </div>
+                <div id='containerDownload'>
                 <div className="container" id="container">
 
                     {tours && tours.map(tour => (
@@ -57,6 +61,7 @@ const Home = () => {
                             </NavLink>
                     ))}
                 </div>
+
                 <div className='homeHeading'>
                     <span>GREAT PLACES TO VISIT</span>
                     <h1>Search <span className='spans'>and Enjoy</span></h1>
@@ -76,6 +81,8 @@ const Home = () => {
                     <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam explicabo dignissimos ex quod consequuntur facilis repellendus incidunt repudiandae animi iure?</span>
                 </div>
                 <hr />
+                <button onClick={generatePdf}>download</button>
+                </div>
                 </>
             }
         </>
