@@ -1,8 +1,10 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+// import { NavLink } from 'react-router-dom'
 import ProfileNav from './ProfileNav'
 
-const ProfileInfo = ({ user }) => {
+const ProfileInfo = () => {
+  const { user } = useSelector(state=> state.user)
   return (
     <>{user && 
     <div className="profile-container">

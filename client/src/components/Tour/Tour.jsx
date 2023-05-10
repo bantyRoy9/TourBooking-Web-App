@@ -9,7 +9,7 @@ import TourPlan from '../TourNav/TourPlan/TourPlan';
 import TourLocation from '../TourNav/TourLocation/TourLocation';
 import TourGallery from '../TourNav/TourGallery/TourGallery';
 import TourCard from '../home/TourCard';
-import Form from '../layout/Form/Form';
+import Form from '../layout/FilterForm/FilterForm';
 import './tour.css'
 
 

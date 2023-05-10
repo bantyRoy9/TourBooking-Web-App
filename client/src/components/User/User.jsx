@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 
 import { useDispatch, useSelector } from 'react-redux'
 import './user.css'
@@ -46,8 +46,8 @@ const User = () => {
         data.set('email', email);
         data.set('password', password);
         data.set('passwordconfirm', passwordconfirm);
-        console.log(user);
-        dispatch(signUp(user))
+        dispatch(signUp(user));
+        navigate('/');
     }
 
     const signupChangeHandler = (e) => {

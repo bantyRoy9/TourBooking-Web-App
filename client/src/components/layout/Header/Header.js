@@ -5,6 +5,7 @@ import './Header.css'
 import logo from './../../../img/logo-green.png'
 import { useSelector } from 'react-redux';
 import UserOption from './UserOption';
+import { navigationUrl } from '../../../json/navList'
 const option ={
   link1Padding:"1vmax",
   link2Margin:"0",
@@ -51,24 +52,37 @@ const Header = () => {
   console.log(user,isAuthenticated,error);
   return (
       <>
-      <ReactNavbar {...option}  className='header-res'/>
+      {/* <ReactNavbar {...option}  className='header-res'/> */}
       <header class="header">
         <nav class="nav nav--tours">
-          <img src="/img/logo-green.png" alt="" />
+          <div className="logoSection">
+            <img src="/img/logo-green.png" alt="" />
+          </div>
+          <div className="navlist">
+            <ul className="nav_list">
+              {navigationUrl.map((el,idx)=>(
+                <li id={`menu-item-${idx}`}>
+                  {el.subPage.length ? <><div className='subToggle'></div></>:<></>}
+                  <NavLink to={el.pageUrl}>{el.name}</NavLink>
+                  <ul className="sub-menu">
+                    {el.subPage.map((ele,i)=>(
+                      <li id={`subMenu-item-${i}`}>
+                      <NavLink to={ele.pageUrl}>{el.name}</NavLink>                      
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ))}
+            </ul>  
+          </div>
+          <div className="navProfile">
           <ul className="nav_list">
-            <NavLink to='/'><li>Home</li></NavLink>
-            <NavLink to='/tours'><li>tour</li></NavLink>
-            <NavLink to='/destination'><li>Destinations</li></NavLink>
-            <NavLink to='/pages'><li>pages</li></NavLink>
-            <NavLink to='/blogs'><li>blogs</li></NavLink>
-            {/* <NavLink to='/elements'><li>elements</li></NavLink> */}
-            <NavLink to='/shops'><li>shops</li></NavLink>
             <NavLink to={'/search'}><i class="fa-solid fa-magnifying-glass"></i></NavLink>
-
             {isAuthenticated ?
             <UserOption user={user}/>:<NavLink className={'nav-login'} to={'/login'}><i class="fa-solid fa-user"> Login</i></NavLink> }
             </ul>
-            </nav>
+          </div>
+        </nav>
       </header>
 
       </>
