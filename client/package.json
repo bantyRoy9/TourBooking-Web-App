@@ -52,5 +52,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://192.168.1.22:8000"
+  "proxy": "https://tourbookingapp.onrender.com/"
 }

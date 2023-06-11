@@ -20,7 +20,7 @@ const Form = ({styles}) => {
     }
     const submithandler =(e)=>{
         e.preventDefault();
-        console.log(sorted);
+        // console.log(sorted);
         navigate(`/tours/search=${sorted.search}&difficulty=${sorted.difficulty}&price[gte]=${sorted.gtePrice}&price[lte]=${sorted.ltePrice}`)
         // {search: 'the', difficulty: 'easy', createAt[gte]: '2022-01', price[gte]: '200', price[lte]: '500'}
     }
