@@ -6,7 +6,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYmFudHk5NzE2IiwiYSI6ImNreW43YXBxMjFhangydXBrb
 
 
 const MapBox = ({ locations }) => {
-    console.log();
+    // console.log();
     const mapContainer = useRef(null);
     const map = useRef(null);
     const [lng, setLng] = useState(locations[0].coordinates);

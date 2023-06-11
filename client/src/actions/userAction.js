@@ -4,6 +4,7 @@ import { USER_REQUIEST,USER_SUCCESS,USER_ERROR, USER_FAIL ,
     USER_LOGOUT_REQUIEST,USER_LOGOUT_SUCCESS,USER_LOGOUT_FAIL } from "../constents/userConstants";
 
 import axios from "axios";
+const URL = 'https://tourbookingapp.onrender.com'
 
 export const login =(email,password) => async(dispatch)=>{
     try{
@@ -12,7 +13,7 @@ export const login =(email,password) => async(dispatch)=>{
         const config = { headers: { "Content-Type": "application/json" } };
 
 
-        const { data } = await axios.post(`/api/v1/users/login`,{email,password},config);
+        const { data } = await axios.post(`${URL}/api/v1/users/login`,{email,password},config);
 
         dispatch({type:USER_SUCCESS , payload : data.data.user})
        
@@ -29,7 +30,7 @@ export const signUp = (user)=> async(dispatch)=>{
         const config = { headers: { "Content-Type": "application/json" } };
 
 
-        const { data } = await axios.post(`api/v1/users/signUp`, user, config)
+        const { data } = await axios.post(`${URL}/api/v1/users/signUp`, user, config)
 
         dispatch({type:USER_REGISTER_SUCCESS, payload: data.data.user})
 
@@ -44,7 +45,7 @@ export const  loadUser = ()=> async(dispatch)=>{
     try{
         dispatch({type: LOAD_USER_REQUIEST})
 
-        const { data } = await axios.get(`api/v1/users/me`)
+        const { data } = await axios.get(`${URL}/api/v1/users/me`)
 
         dispatch({type: LOAD_USER_SUCCESS, payload: data.data.data})
 
@@ -55,7 +56,7 @@ export const  loadUser = ()=> async(dispatch)=>{
 
 export const userLogout = () => async(dispatch)=>{
     try{
-        await axios.get('api/v1/users/logout')
+        await axios.get(`${URL}/api/v1/users/logout`)
 
         dispatch({type: USER_LOGOUT_SUCCESS});
     }catch(error){

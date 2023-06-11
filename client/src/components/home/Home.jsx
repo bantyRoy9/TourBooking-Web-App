@@ -25,12 +25,12 @@ const Home = () => {
 
     const generatePdf =()=>{
         const element= document.getElementById("containerDownload");
-        console.log(element);
+        // console.log(element);
        // html2pdf().from(element).save();
     }
     return (
         <>
-            {/*loading ? <Loading /> :*/ <>
+            {loading ? <Loading /> : <>
                 <MetaHead title='Natours' />
                 <div className="banner">
                     <main className='home-slider'>

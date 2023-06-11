@@ -49,7 +49,7 @@ const option ={
 const Header = () => {
 
   const {user,isAuthenticated,error} = useSelector(state=>state.user)
-  console.log(user,isAuthenticated,error);
+  // console.log(user,isAuthenticated,error);
   return (
       <>
       {/* <ReactNavbar {...option}  className='header-res'/> */}
