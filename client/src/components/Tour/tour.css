@@ -263,7 +263,7 @@
 .tbr-search form input{
     width: 100%;
     margin: 10px 0px;
-    padding: 15px 3px;
+    padding: 15px 12px;
     outline: none;
     border: none;
 }
@@ -271,6 +271,10 @@
     position: relative;
     left: 10px;
     text-transform: capitalize;
+}
+.tbr-search  form>input[type='number']{
+    width: 100%;
+    margin-left: 0px;
 }
 .tbr-search form input[type='submit']{
     background: #1976bc;
@@ -307,7 +311,7 @@
 }
 .tbr-card{
     display: flex;
-    width: 22.55vmax;
+    width: 19vmax;
     margin: 2vmax 0px;
 }
 

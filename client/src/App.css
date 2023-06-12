@@ -112,4 +112,14 @@ ul{
     font-size: 1rem;
     box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.15) !important;
   }
-  
+
+  /*Remove Arrow function from input fields*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}

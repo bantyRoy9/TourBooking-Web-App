@@ -75,7 +75,7 @@ const Header = () => {
               ))}
             </ul>  
           </div>
-          <div className="navProfile">
+          <div className="navProfile" style={{marginTop:'15px'}}>
           <ul className="nav_list">
             <NavLink to={'/search'}><i className="fa-solid fa-magnifying-glass"></i></NavLink>
             {isAuthenticated ?

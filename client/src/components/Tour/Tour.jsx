@@ -99,7 +99,7 @@ const Product = ({ match }) => {
               <header className="header header-tour">
                 <nav className="nav nav--tours">
                   <ul className="nav_list">
-                    <NavLink to=' ' onClick={() => setCount(1)}><li>Information</li></NavLink>
+                    <li><NavLink to=' ' onClick={() => setCount(1)}>Information</NavLink></li>
                     <NavLink to=' ' onClick={() => setCount(2)}><li>Tour Plan</li></NavLink>
                     <NavLink to=' ' onClick={() => setCount(3)}><li>Location</li></NavLink>
                     <NavLink to=' ' onClick={() => setCount(4)}><li>Gallery</li></NavLink>
