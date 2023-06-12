@@ -53,8 +53,8 @@ const Header = () => {
   return (
       <>
       {/* <ReactNavbar {...option}  className='header-res'/> */}
-      <header class="header">
-        <nav class="nav nav--tours">
+      <header className="header">
+        <nav className="nav nav--tours">
           <div className="logoSection">
             <img src="/img/logo-green.png" alt="" />
           </div>
@@ -77,9 +77,9 @@ const Header = () => {
           </div>
           <div className="navProfile">
           <ul className="nav_list">
-            <NavLink to={'/search'}><i class="fa-solid fa-magnifying-glass"></i></NavLink>
+            <NavLink to={'/search'}><i className="fa-solid fa-magnifying-glass"></i></NavLink>
             {isAuthenticated ?
-            <UserOption user={user}/>:<NavLink className={'nav-login'} to={'/login'}><i class="fa-solid fa-user"> Login</i></NavLink> }
+            <UserOption user={user}/>:<NavLink className={'nav-login'} to={'/login'}><i className="fa-solid fa-user"> Login</i></NavLink> }
             </ul>
           </div>
         </nav>

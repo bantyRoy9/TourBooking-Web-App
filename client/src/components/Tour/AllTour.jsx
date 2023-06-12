@@ -41,7 +41,7 @@ const AllTour = () => {
   }
   useEffect(() => {
     if (error) {
-      console.log(error);
+    //  console.log(error);
     }
     dispatch(getAllTour(keyword, currentPage,category,sortBy))
   }, [dispatch, error, keyword, currentPage,category,sortBy])
@@ -62,14 +62,14 @@ const AllTour = () => {
           <div className="allTour-form-container">
             <Form styles='allTour-form' />
             <div className="categories" >
-              <strong onClick={changeActive}>Categories: <i class="fa-solid fa-caret-down"></i></strong>
+              <strong onClick={changeActive}>Categories: <i className="fa-solid fa-caret-down"></i></strong>
               <div className={`categoriesItem ${catActive}`}>
               <input type="radio" name='category' value={''} onClick={changeTour} />
                   <label htmlFor={'category'}>All Tours</label>
-              {categories.map(category => (
+              {categories.map((category,idx) => (
                 <>
-                  <input type="radio" name='category' value={category} onClick={(e) => {setCategory(e.target.value); setCatActive('') }} />
-                  <label htmlFor={category}> {category}</label><br />
+                  <input key={idx} type="radio" name='category' value={category} onClick={(e) => {setCategory(e.target.value); setCatActive('') }} />
+                  <label key={idx} htmlFor={category}> {category}</label><br />
                 </>
               ))}
               </div>
@@ -98,10 +98,9 @@ const AllTour = () => {
           </div>
           <div className="container" id="container">
             {tours.length === 0 ? <h1>Sorry! Not Found ({category}) </h1> : <>
-            {tours && tours.map(tour => (
-              <NavLink to={`/tour/${tour._id}`}>
+            {tours && tours.map((tour,idx) => (
+              <NavLink key={idx} to={`/tour/${tour._id}`}>
                 <TourCard tour={tour} cardStyle='tourcard' />
-
               </NavLink>
             ))}
             </>
@@ -121,10 +120,10 @@ const AllTour = () => {
                 prevPageText='prev'
                 firstPageText='first'
                 lastPageText='last'
-                itemClass='page-item'
-                linkClass='page-link'
-                activeClass='page-item-active'
-                activeLinkClass='page-link-active'
+                itemclassName='page-item'
+                linkclassName='page-link'
+                activeclassName='page-item-active'
+                activeLinkclassName='page-link-active'
               />
             </div>
           }

@@ -32,7 +32,7 @@ function App() {
   return (
     <>
     <BrowserRouter>
-      <Header/>
+      <Header />
       <Routes>
         <Route exect path='/' element={<Home/>}></Route>
 
@@ -49,7 +49,7 @@ function App() {
         <Route exect path='/my-booking' element={<ProtectRoute Component={ProfileInfo}/>}></Route>
         <Route exect path='/settings' element={<ProtectRoute Component={ProfileInfo}/>}></Route>
       </Routes>
-      <Footer/>
+      {/* <Footer/> */}
     </BrowserRouter>
     </>
   );

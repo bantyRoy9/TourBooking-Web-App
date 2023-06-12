@@ -21,7 +21,7 @@ const User = () => {
     const [avatar, setAvatar] = useState("/Profile.png");
 
     const { isAuthenticated } = useSelector((state) => state.user)
-    console.log(isAuthenticated, avatar, avatarPreview);
+   // console.log(isAuthenticated, avatar, avatarPreview);
 
     const [user, setUser] = useState({
         name: '',
@@ -34,7 +34,7 @@ const User = () => {
 
     const loginSubmit = (e) => {
         e.preventDefault();
-        console.log(loginEmail, loginPassword);
+        //console.log(loginEmail, loginPassword);
         dispatch(login(loginEmail, loginPassword))
 
     }
@@ -53,7 +53,7 @@ const User = () => {
     const signupChangeHandler = (e) => {
         if (e.target.name === 'avatar') {
             const reader = new FileReader();
-            console.log('avatar');
+            //console.log('avatar');
             reader.onload = () => {
                 if (reader.readyState === 2) {
                     setAvatarPreview(reader.result);
@@ -94,9 +94,9 @@ const User = () => {
         <>
             <div className='loginSignupContainer'>
 
-                <div class="bg"></div>
-                <div class="bg bg2"></div>
-                <div class="bg bg3"></div>
+                <div className="bg"></div>
+                <div className="bg bg2"></div>
+                <div className="bg bg3"></div>
                 <div className="loginSignup-box">
                     <div>
                         <div className="loginSignup-toggle">
@@ -149,12 +149,12 @@ const User = () => {
 
 
                 <div>
-                    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
+                    <svg className="waves" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
                         viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
                         <defs>
                             <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
                         </defs>
-                        <g class="parallax">
+                        <g className="parallax">
                             <use xlinkHref="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
                             <use xlinkHref="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
                             <use xlinkHref="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />

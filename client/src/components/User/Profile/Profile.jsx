@@ -28,9 +28,9 @@ const Profile = () => {
         myForm.set("email", users.email);
         myForm.set("photo", users.photo);
 
-        console.log(myForm);
+      //  console.log(myForm);
         for (var pair of myForm.entries()) {
-            console.log(pair[0] + ', ' + pair[1]);
+           // console.log(pair[0] + ', ' + pair[1]);
         }
         // console.log(users.name,users.email);
 
