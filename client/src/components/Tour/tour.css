@@ -348,6 +348,12 @@
 .page-link-active{
     color: white;
 }
+.header-tour>nav>ul{
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
+    width: 83% !important;
+}
 
 @media only screen and (max-width:600px) {
     .tour-block{
