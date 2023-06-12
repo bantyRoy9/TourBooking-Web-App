@@ -80,8 +80,8 @@ const Home = () => {
                     <h1>Search <span className='spans'>and Enjoy</span></h1>
                     <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam explicabo dignissimos ex quod consequuntur facilis repellendus incidunt repudiandae animi iure?</span>
                 </div>
-                <hr />
-                <button onClick={generatePdf}>download</button>
+                {/* <hr />
+                <button onClick={generatePdf}>download</button> */}
                 </div>
                 </>
             }
