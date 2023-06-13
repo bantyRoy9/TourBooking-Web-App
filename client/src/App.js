@@ -34,7 +34,7 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route exect path='/' element={<Home/>}></Route>
+        <Route exect path='' element={<Home/>}></Route>
 
         <Route exect path='/tours' element={<AllTour/>}></Route>
         <Route path='/tours/:keyword' element={<AllTour/>}></Route>

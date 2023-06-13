@@ -53,10 +53,10 @@ export const navigationUrl = [
     }]
 },
 {
-    page:'destination',
-    name:'Destination',
-    pageId:'2',
-    pageUrl:'/destination',
+    page:'blog',
+    name:'Blog',
+    pageId:'3',
+    pageUrl:'/blog',
     subPage:[{
         page:'contact',
         name:'Contact',
@@ -80,14 +80,14 @@ export const navigationUrl = [
     }]
 },
 {
-    page:'destination',
-    name:'Destination',
-    pageId:'2',
-    pageUrl:'/destination',
+    page:'elements',
+    name:'Elements',
+    pageId:'3',
+    pageUrl:'/elements',
     subPage:[{
         page:'contact',
         name:'Contact',
-        pageId:'2',
+        pageId:'3',
         pageUrl:'/contact',
         
     },
@@ -107,10 +107,10 @@ export const navigationUrl = [
     }]
 },
 {
-    page:'destination',
-    name:'Destination',
-    pageId:'2',
-    pageUrl:'/destination',
+    page:'shop',
+    name:'Shop',
+    pageId:'5',
+    pageUrl:'/shop',
     subPage:[{
         page:'contact',
         name:'Contact',
