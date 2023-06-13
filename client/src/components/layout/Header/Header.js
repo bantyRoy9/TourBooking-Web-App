@@ -61,10 +61,10 @@ const Header = () => {
           <div className="navlist">
             <ul className="nav_list">
               {navigationUrl.map((el,idx)=>(
-                <li id={`menu-item-${idx}`}>
+                <li id={`menu-item-${idx}`} className='menu-left'>
                   {el.subPage.length ? <><div className='subToggle'></div></>:<></>}
                   <NavLink to={el.pageUrl}>{el.name}</NavLink>
-                  <ul className="sub-menu">
+                  <ul className="sub-menu" style={{display:'none'}}>
                     {el.subPage.map((ele,i)=>(
                       <li id={`subMenu-item-${i}`}>
                       <NavLink to={ele.pageUrl}>{el.name}</NavLink>                      

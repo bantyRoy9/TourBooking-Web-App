@@ -31,7 +31,7 @@ const Home = () => {
     return (
         <>
             {loading ? <Loading /> : <>
-                <MetaHead title='Natours' />
+                <MetaHead title='Tour Booking App' />
                 <div className="banner">
                     <main className='home-slider'>
                         <div className="home-location"></div>

@@ -1,3 +1,4 @@
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;1,400&display=swap');
 .speedDial {
     /* position: fixed; */
     width: 40px;
@@ -5,7 +6,9 @@
     border-radius: 100%;
     margin: 0 0 0 30px;
 }
-
+.header{
+    font-family: 'Montserrat', sans-serif;
+}
 .speedDialIcon {
     width: 56px;
     height: 56px;
@@ -43,18 +46,24 @@ nav .logoSection img{
 
     /* padding: 10px; */
     /* height: fit-content; */
+    margin:0 1vmax;
 }
 .navlist>ul>li>a{
     background: inherit;
-    margin:0 1vmax;
     text-transform: capitalize;
     font-weight: 500;
-    padding: 10px 13px;
+    padding: 0px 13px;
     transition: ease-in-out .3ms;
     letter-spacing: 1px;
+    color: #181818;
+    line-height: 40px;
+    /* padding: 0; */
+    font-weight: 550;
+    letter-spacing: -.03em;
+    transition: all .5s;
 }
-.navlist>ul>li>a.active,
-.navlist>ul>li>a:hover{
+
+.navlist>ul>li>a.active{
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 5px;
     cursor: pointer;
     border-bottom: 2px solid transparent ;
@@ -62,6 +71,7 @@ nav .logoSection img{
     color: yellowgreen;
     border-bottom: 1px solid;
     transition: all .5ms;
+    padding: 10px 20px;
 }
 .navlist>ul>li>ul{
     position: absolute;
@@ -95,6 +105,51 @@ nav .logoSection img{
     color: yellowgreen;
     border-color: yellowgreen;
 }
+
+.navlist>ul li a:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    transition: width 0s ease, background .35s ease;
+}
+
+.navlist>ul li a:after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 3px;
+    width: 0;
+    background: rgb(197, 48, 48);
+    background: linear-gradient(to right,#1976bc 0%,#8dc645 100%);
+
+    transition: width .35s ease;
+}
+
+.navlist>ul li a:hover:before,
+.navlist>ul>li>a.active::before
+    {
+    width: 100%;
+    background: linear-gradient(to right,#1976bc 0%,#8dc645 100%);
+    transition: width .35s ease;
+}
+.navlist>ul>li:hover{
+    transition: all .5ms;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 5px;
+    cursor: pointer;
+    background: #fff;   
+}
+.navlist>ul li a:hover:after {
+    width: 100%;
+    background: transparent;
+    transition: all 0s ease;
+}
+
 .menuBurger{
     display: none;
 }
