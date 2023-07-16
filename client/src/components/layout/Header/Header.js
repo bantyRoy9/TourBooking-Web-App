@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { ReactNavbar } from 'overlay-navbar'
 import './Header.css'
@@ -6,6 +6,8 @@ import logo from './../../../img/logo-green.png'
 import { useSelector } from 'react-redux';
 import UserOption from './UserOption';
 import { navigationUrl } from '../../../json/navList'
+import Search from '../Search/Search'
+import User from '../../User/User'
 const option ={
   link1Padding:"1vmax",
   link2Margin:"0",
@@ -48,8 +50,13 @@ const option ={
 }
 const Header = () => {
 
-  const {user,isAuthenticated,error} = useSelector(state=>state.user)
+  const {user,isAuthenticated,error} = useSelector(state=>state.user);
+  const [modelOpen, setmodelOpen] = useState('cloase')
   // console.log(user,isAuthenticated,error);
+
+  const openModal = (val) =>{
+    setmodelOpen(val);
+  }
   return (
       <>
       {/* <ReactNavbar {...option}  className='header-res'/> */}
@@ -77,12 +84,14 @@ const Header = () => {
           </div>
           <div className="navProfile" style={{marginTop:'15px'}}>
           <ul className="nav_list">
-            <NavLink to={'/search'}><i className="fa-solid fa-magnifying-glass"></i></NavLink>
+            <i onClick={()=>openModal('open')} className="fa-solid fa-magnifying-glass"></i>
             {isAuthenticated ?
-            <UserOption user={user}/>:<NavLink className={'nav-login'} to={'/login'}><i className="fa-solid fa-user"> Login</i></NavLink> }
+            <UserOption user={user}/>:<NavLink className={'nav-login'} to={'#'} onClick={()=> openModal('openLoginModal')}><i className="fa-solid fa-user"> Login</i></NavLink> }
             </ul>
           </div>
         </nav>
+        <Search isOpen={modelOpen} openModal={openModal}/>
+        <User isOpen={modelOpen} openModal={openModal}/>
       </header>
 
       </>

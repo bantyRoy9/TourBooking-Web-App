@@ -12,6 +12,34 @@
     /* background-color: rgb(231, 231, 231); */
     /* background: linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%); */
     background-image: var(--background-image-gredient);
+    transform: translate(0,-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 800ms ease-in-out;
+    z-index: 99998;
+}
+.loginSignupContainer.openLoginModal{
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(0,0);
+}
+.loginSignupContainer .close{
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 20px;
+}
+.loginSignupContainer .close i{
+  font-size: 4rem;
+  padding: 20px;
+  transition: all .5s ease-in-out;
+  color: #1976BC;
+  /* font-weight: 300; */
+}
+.loginSignupContainer .close:hover i{
+  transform: rotate(180deg);
+  cursor: pointer;
+  color: #0b436e;
 
 }
 .loginSignup-box{

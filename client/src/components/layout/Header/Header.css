@@ -106,7 +106,7 @@ nav .logoSection img{
     border-color: yellowgreen;
 }
 
-.navlist>ul li a:before {
+.navlist>ul li :before {
     content: '';
     display: block;
     position: absolute;
@@ -117,7 +117,7 @@ nav .logoSection img{
     transition: width 0s ease, background .35s ease;
 }
 
-.navlist>ul li a:after {
+.navlist>ul li :after {
     content: '';
     display: block;
     position: absolute;
@@ -131,7 +131,7 @@ nav .logoSection img{
     transition: width .35s ease;
 }
 
-.navlist>ul li a:hover:before,
+.navlist>ul li :hover:before,
 .navlist>ul>li>a.active::before
     {
     width: 100%;
@@ -144,7 +144,7 @@ nav .logoSection img{
     cursor: pointer;
     background: #fff;   
 }
-.navlist>ul li a:hover:after {
+.navlist>ul li :hover:after {
     width: 100%;
     background: transparent;
     transition: all 0s ease;

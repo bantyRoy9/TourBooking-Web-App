@@ -5,8 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import './user.css'
 import { login, signUp } from '../../actions/userAction'
 
-const User = () => {
-
+const User = ({isOpen,openModal}) => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -92,7 +91,8 @@ const User = () => {
 
     return (
         <>
-            <div className='loginSignupContainer'>
+            <div className={`loginSignupContainer ${isOpen}`}>
+            <div className="close"><i className='fa-solid fa-xmark' onClick={()=>openModal('close')}></i></div>
 
                 <div className="bg"></div>
                 <div className="bg bg2"></div>

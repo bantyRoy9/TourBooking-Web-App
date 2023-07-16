@@ -9,9 +9,54 @@
     height: 100vh;
     top: 0;
     left: 0;
-    /* height: max-content; */
+    right: 0;
+    bottom: 0;
+    -webkit-transform: translate(0,-100%);
+    -moz-transform: translate(0,-100%);
+    -ms-transform: translate(0,-100%);
+    transform: translate(0,-100%);
+    -webkit-box-shadow: 0 0 250px 0 rgba(24,24,24,.1);
+    box-shadow: 0 0 250px 0 rgba(24,24,24,.1);
+    opacity: 0;
+    pointer-events: none;
+    -webkit-transition: all 800ms ease;
+    -moz-transition: all 800ms ease;
+    transition: all 800ms ease;
+    z-index: 99998;
 }
+.searchForm.open{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(0,0);
+}
+.searchForm.close{
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(0,-100%);
+}
+.searchForm .close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 20px;
+}
+.fa-solid{
+    color: #1976BC;
+    cursor: pointer;
+}
+.searchForm .close i{
+    font-size: 4rem;
+    padding: 20px;
+    transition: all .5s ease-in-out;
+    color: #1976BC;
+    /* font-weight: 300; */
+}
+.searchForm .close:hover i{
+    transform: rotate(180deg);
+    cursor: pointer;
+    color: #0b436e;
 
+}
 .searchForm>input[type='text']{
     padding: 1vmax 2vmax;
     color: rgba(0,0,0,0.67);
