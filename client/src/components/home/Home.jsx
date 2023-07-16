@@ -20,7 +20,7 @@ const Home = () => {
             // return alert.error(error)
             alert(error)
         }
-        dispatch(getAllTour())
+       !tours.length &&  dispatch(getAllTour())
     }, [dispatch, error, alert])
 
     const generatePdf =()=>{

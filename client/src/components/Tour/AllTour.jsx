@@ -26,7 +26,7 @@ const AllTour = () => {
 
   const navigate = useNavigate()
   let { keyword } = useParams();
-
+console.log(keyword);
   const setCurrentPageNo = (e) => {
     setCurrentPage(e)
   }
