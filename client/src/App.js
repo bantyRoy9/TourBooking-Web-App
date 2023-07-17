@@ -37,7 +37,7 @@ function App() {
         <Route exect path='' element={<Home/>}></Route>
 
         <Route exect path='/tours' element={<AllTour/>}></Route>
-        {/* <Route exect path='/tours/:keyword' element={<AllTour/>}></Route> */}
+        <Route exect path='/tours/:keyword' element={<AllTour/>}></Route>
         <Route exect path='/tour/:id' element={<Product/>}></Route>
 
         {/* <Route  path='/search' element={<Search/>}></Route> */}

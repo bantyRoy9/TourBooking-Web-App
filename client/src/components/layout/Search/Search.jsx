@@ -7,8 +7,8 @@ const Search = ({ isOpen, openModal }) => {
     const navigate = useNavigate()
     const search =(e)=>{
         e.preventDefault()
-        navigate(`/tours/search=${keyword}`);
         openModal('close')
+        navigate(`/tours/search=${keyword}`);
     }
       return (
     <>

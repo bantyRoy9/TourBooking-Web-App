@@ -59,7 +59,7 @@ const Header = () => {
   }
   return (
       <>
-      {/* <ReactNavbar {...option}  className='header-res'/> */}
+      <ReactNavbar {...option}  className='header-res'/> 
       <header className="header">
         <nav className="nav nav--tours">
           <div className="logoSection">
