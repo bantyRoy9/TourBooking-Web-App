@@ -95,7 +95,7 @@ nav .logoSection img{
     border: 1px solid #1976bc;
     padding: 10px 12px;
     border-radius: 5px;
-    margin-left:20px ;
+    /* margin-left:20px ; */
     background: white;
     transition: ease-in-out .3s;
     color: #59aff0;
@@ -166,12 +166,15 @@ nav .logoSection img{
     height: 100%;
     border-radius: 50%;
 } */
+.fa-magnifying-glass{
+    padding: 0 20px 0 0;
+}
 @media only screen and (max-width:600px){
-    /* .header{
+     .header{
         display: none;
     }
     .menuBurger{
         display: flex;
         height: 30px;
-    } */
+    } 
 }

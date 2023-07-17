@@ -1,7 +1,9 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import moment from 'moment'
 const TourCard = (props) => {
   const tour = props.tour;
+
   const cardStyle = props.cardStyle
   return (
     <>
@@ -39,13 +41,13 @@ const TourCard = (props) => {
               <svg className="card__icon">
                 <use xlinkHref="img/icons.svg#icon-calendar"></use>
               </svg>
-              <span>{'April 2022'}</span>
+              <span>{`${moment(tour.createAt).format('MMMM YYYY') }`}</span>
             </div>
             <div className="card__data">
               <svg className="card__icon">
                 <use xlinkHref="img/icons.svg#icon-flag"></use>
               </svg>
-              <span>{`${tour.locations.lenght} stops`}</span>
+              <span>{`${tour.locations.length} stops`}</span>
             </div>
             <div className="card__data">
               <svg className="card__icon">

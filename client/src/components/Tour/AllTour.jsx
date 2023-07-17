@@ -26,7 +26,7 @@ const AllTour = () => {
 
   const navigate = useNavigate()
   let { keyword } = useParams();
-console.log(keyword);
+  console.log(keyword)
   const setCurrentPageNo = (e) => {
     setCurrentPage(e)
   }
@@ -41,8 +41,9 @@ console.log(keyword);
   }
   useEffect(() => {
     if (error) {
-    //  console.log(error);
+    //  console.log(error);git
     }
+    
     dispatch(getAllTour(keyword, currentPage,category,sortBy))
   }, [dispatch, error, keyword, currentPage,category,sortBy])
 
