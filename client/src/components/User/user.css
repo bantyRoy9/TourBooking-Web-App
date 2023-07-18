@@ -53,6 +53,7 @@
   box-shadow: 0px 0px 10px 1px rgba(146, 176, 145, 0.19);
   border-radius: 10px;
   border: 1px solid #e3dfdf;
+  padding: 25px;
 }
 .loginSignup-toggle{
     display: flex;
@@ -95,8 +96,14 @@
 .loginForm>div,
 .signupForm>div{
     display: flex;
+    flex-direction: column;
     width: 100%;
-    align-items: center;
+    align-items: flex-start;
+}
+
+.loginForm>div label,
+.signupForm>div label{
+    font-weight: 550;
 }
 .loginForm>div>input,
 .signupForm>div>input{

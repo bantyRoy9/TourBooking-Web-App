@@ -107,12 +107,14 @@ const User = ({isOpen,openModal}) => {
                     </div>
                     <form className='loginForm' ref={loginTab} onSubmit={loginSubmit}>
                         <div className="loginEmail">
-                            <i className='fa-solid fa-envelope'></i>
-                            <input type="email" name='email' onChange={(e) => setLoginEmail(e.target.value)} placeholder='Email' required />
+                            <label htmlFor="email">Email</label>
+                            {/* <i className='fa-solid fa-envelope'></i> */}
+                            <input type="email" name='email' onChange={(e) => setLoginEmail(e.target.value)} required />
                         </div>
                         <div className="loginPassword">
-                            <i className='fa-solid fa-unlock'></i>
-                            <input type="password" name="password" onChange={(e) => setLoginPassword(e.target.value)} placeholder='Password' required />
+                            <label htmlFor="password">Password</label>
+                            {/* <i className='fa-solid fa-unlock'></i> */}
+                            <input type="password" name="password" onChange={(e) => setLoginPassword(e.target.value)} required />
                         </div>
                         <Link to='/forget/password'>forget password</Link>
                         <input type="submit" value="Login" className='loginbtn' />
