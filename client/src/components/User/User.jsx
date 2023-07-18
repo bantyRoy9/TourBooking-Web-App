@@ -94,9 +94,9 @@ const User = ({isOpen,openModal}) => {
             <div className={`loginSignupContainer ${isOpen}`}>
             <div className="close"><i className='fa-solid fa-xmark' onClick={()=>openModal('close')}></i></div>
 
-                <div className="bg"></div>
-                <div className="bg bg2"></div>
-                <div className="bg bg3"></div>
+                {/* <div className="bg"></div> */}
+                {/* <div className="bg bg2"></div> */}
+                {/* <div className="bg bg3"></div> */}
                 <div className="loginSignup-box">
                     <div>
                         <div className="loginSignup-toggle">
@@ -148,7 +148,7 @@ const User = ({isOpen,openModal}) => {
 
 
 
-                <div>
+                {/* <div>
                     <svg className="waves" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
                         viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
                         <defs>
@@ -161,7 +161,7 @@ const User = ({isOpen,openModal}) => {
                             <use xlinkHref="#gentle-wave" x="48" y="7" fill="#fff" />
                         </g>
                     </svg>
-                </div>
+                </div> */}
             </div>
         </>
     )
