@@ -58,7 +58,6 @@ const Profile = () => {
         setUserPhoto(user.photo)
     }, [isAuthenticated, user])
 
-
     return (
         <>
             {loading ? <Loading /> : users &&

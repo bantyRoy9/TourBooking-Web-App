@@ -10,12 +10,16 @@
     font-family: 'Montserrat', sans-serif;
 }
 .speedDialIcon {
-    width: 56px;
-    height: 56px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     background: white;
     padding: 2px;
 
+  }
+  .MuiSpeedDial-root>button{
+    width: 36px !important;
+    height: 36px !important;
   }
   
   .menuBurger{
@@ -148,6 +152,10 @@ nav .logoSection img{
     width: 100%;
     background: transparent;
     transition: all 0s ease;
+}
+.navProfile .navlist{
+    display: grid;
+    place-items: center;
 }
 
 .menuBurger{
