@@ -123,20 +123,24 @@ const User = ({isOpen,openModal}) => {
 
                     <form className='signupForm' ref={signupTab} encType='multipart/form-data' onSubmit={signupSubmit}>
                         <div className="signupName">
-                            <i className='fa-solid fa-user'></i>
-                            <input type="text" placeholder='Name' name='name' onChange={signupChangeHandler} required />
+                            <label htmlFor="name">Name</label>
+                            {/* <i className='fa-solid fa-user'></i> */}
+                            <input type="text"  name='name' onChange={signupChangeHandler} required />
                         </div>
                         <div className="signupEmail">
-                            <i className='fa-solid fa-envelope'></i>
-                            <input type="email" placeholder='Email' name='email' onChange={signupChangeHandler} required />
+                            <label htmlFor="email">Email</label>
+                            {/* <i className='fa-solid fa-envelope'></i> */}
+                            <input type="email"  name='email' onChange={signupChangeHandler} required />
                         </div>
                         <div className="signupPassword">
-                            <i className='fa-solid fa-lock'></i>
-                            <input type="password" placeholder='Password' name='password' onChange={signupChangeHandler} required />
+                            <label htmlFor="password">Password</label>
+                            {/* <i className='fa-solid fa-lock'></i> */}
+                            <input type="password"  name='password' onChange={signupChangeHandler} required />
                         </div>
                         <div className="signupPassword">
-                            <i className='fa-solid fa-lock'></i>
-                            <input type="password" placeholder='Confirm Password' name='passwordconfirm' onChange={signupChangeHandler} required />
+                            <label htmlFor="confirmPassword">Confirm Password</label>
+                            {/* <i className='fa-solid fa-lock'></i> */}
+                            <input type="password" name='passwordconfirm' onChange={signupChangeHandler} required />
                         </div>
                         {/* <div id="signupImage">
                             <img src={avatarPreview} alt="avatarPreview" />
