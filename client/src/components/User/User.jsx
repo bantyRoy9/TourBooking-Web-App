@@ -65,7 +65,6 @@ const User = ({isOpen,openModal}) => {
         }
     }
 
-
     useEffect(() => {
         if (isAuthenticated) {
             navigate('/account');
@@ -89,10 +88,19 @@ const User = ({isOpen,openModal}) => {
         }
     }
 
+    const closeModal = () =>{
+        console.log('dsaff',window.location.href.includes('login'));
+        if(window.location.href.includes('login')){
+            navigate('/')
+        }else{
+            openModal('close')
+        }
+    }
+
     return (
         <>
             <div className={`loginSignupContainer ${isOpen}`}>
-            <div className="close"><i className='fa-solid fa-xmark' onClick={()=>openModal('close')}></i></div>
+            <div className="close"><i className='fa-solid fa-xmark' onClick={closeModal}></i></div>
 
                 {/* <div className="bg"></div> */}
                 {/* <div className="bg bg2"></div> */}
