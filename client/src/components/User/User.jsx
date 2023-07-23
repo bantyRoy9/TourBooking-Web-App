@@ -94,6 +94,7 @@ const User = ({isOpen,openModal}) => {
             navigate('/')
         }else{
             openModal('close')
+            console.log('ss')
         }
     }
 
