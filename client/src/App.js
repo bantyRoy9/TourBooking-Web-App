@@ -41,7 +41,7 @@ function App() {
         <Route exect path='/tour/:id' element={<Product/>}></Route>
 
         {/* <Route  path='/search' element={<Search/>}></Route> */}
-        {/* <Route exect path='/login'  element={ <User/>}></Route> */}
+        <Route exect path='/login'  element={ <User isOpen={'openLoginModal'}/>}></Route>
         <Route exect path='/account' element={<ProtectRoute Component={Profile}/>}></Route>
         <Route exect path='/address' element={<ProtectRoute Component={ProfileInfo}/>}></Route>
         <Route exect path='/password' element={<ProtectRoute Component={ProfilePass}/>}></Route>

@@ -4,7 +4,9 @@ import { USER_REQUIEST,USER_SUCCESS,USER_ERROR, USER_FAIL ,
     USER_LOGOUT_REQUIEST,USER_LOGOUT_SUCCESS,USER_LOGOUT_FAIL } from "../constents/userConstants";
 
 import axios from "axios";
-const URL = 'https://tourbookingapp.onrender.com'
+// const URL = 'https://tourbookingapp.onrender.com'
+const URL = 'http://localhost:8000'
+
 
 export const login =(email,password) => async(dispatch)=>{
     try{
