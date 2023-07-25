@@ -28,7 +28,29 @@ body{
   line-height: 1.75em;
   background-size: cover;
   overflow-x: hidden;
+  scroll-behavior: smooth;
   /* background-attachment: fixed; */
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  /* background: #a81919; */
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #efe3e3;
+  background-image:linear-gradient(to top,#1976bc 0%,#8dc645 100%);
+
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #09a6e9;
 }
 a{
   text-decoration: none;
