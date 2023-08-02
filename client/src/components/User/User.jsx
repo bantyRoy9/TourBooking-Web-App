@@ -89,7 +89,7 @@ const User = ({isOpen,openModal}) => {
     }
 
     const closeModal = () =>{
-        console.log('dsaff',window.location.href.includes('login'));
+        // console.log('dsaff',window.location.href.includes('login'));
         if(window.location.href.includes('login')){
             navigate('/')
         }else{

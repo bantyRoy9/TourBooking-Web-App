@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 // import { useAlert } from 'react-alert';
-import { useParams, NavLink } from 'react-router-dom';
+import { useParams, NavLink, useLocation } from 'react-router-dom';
 // import Loading from '../layout/Loading/Loading';
 import { getAllTour, getTourDetail } from '../../actions/tourAction';
 import TourInfo from '../TourNav/TourInfo/TourInfo';
@@ -16,6 +16,7 @@ import './tour.css'
 const Product = ({ match }) => {
   const { id } = useParams()
   const [sroller, setsroller] = useState({})
+  const { pathname } = useLocation();
   const [count, setCount] = useState(1)
   const dispatch = useDispatch();
   const { loading, error, tour } = useSelector((state) => state.tour)
@@ -26,8 +27,9 @@ const Product = ({ match }) => {
       // return alert.error(error)
       alert(error)
     }
-    dispatch(getTourDetail(id))
-    dispatch(getAllTour())
+    window.scrollTo(0,0);
+    dispatch(getTourDetail(id));
+    dispatch(getAllTour());
   }, [dispatch, error, alert])
 
 
@@ -97,22 +99,22 @@ const Product = ({ match }) => {
             </div>
             <div className="tour-bloc-left_nav">
               <header className="header header-tour">
-                <nav className="nav nav--tours">
+                <nav className="navlist nav--tours">
                   <ul className="nav_list">
-                    <li><NavLink to=' ' onClick={() => setCount(1)}>Information</NavLink></li>
-                    <NavLink to=' ' onClick={() => setCount(2)}><li>Tour Plan</li></NavLink>
-                    <NavLink to=' ' onClick={() => setCount(3)}><li>Location</li></NavLink>
-                    <NavLink to=' ' onClick={() => setCount(4)}><li>Gallery</li></NavLink>
-                    <NavLink to=' ' onClick={() => setCount(5)}><li>Reviews</li></NavLink>
-                    <NavLink to=' ' onClick={() => setCount(6)}><li>Similar Tour</li></NavLink>
+                  <li><NavLink to=' ' className={count === 1 && 'active'} onClick={() => setCount(1)}>Location</NavLink></li>
+                    <li><NavLink to=' ' className={count === 2 && 'active'} onClick={() => setCount(2)}>Information</NavLink></li>
+                    <li><NavLink to=' ' className={count === 3 && 'active'} onClick={() => setCount(3)}>Tour Plan</NavLink></li>
+                    <li><NavLink to=' ' className={count === 4 && 'active'} onClick={() => setCount(4)}>Gallery</NavLink></li>
+                    <li><NavLink to=' ' className={count === 5 && 'active'} onClick={() => setCount(5)}>Reviews</NavLink></li>
+                    <li><NavLink to=' ' className={count === 6 && 'active'} onClick={() => setCount(6)}>Similar Tour</NavLink></li>
                   </ul>
                 </nav>
               </header>
             </div>
             <div className="tour-block-left_section3">
-              {count === 1 && tour && <TourInfo tour = {tour} />}
-              {count === 2 && <TourPlan />}
-              {count === 3 && tour && <TourLocation locations = {tour.locations}/>}
+              {count === 1 &&  Object.keys(tour).length && <TourLocation locations = {tour.locations}/>}
+              {count === 2 &&  Object.keys(tour).length && <TourInfo tour = {tour} />}
+              {count === 3 && <TourPlan />}
               {count === 4 && <TourGallery />}
 
             </div>

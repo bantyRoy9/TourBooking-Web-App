@@ -356,8 +356,9 @@
     display: flex !important;
     flex-wrap: wrap !important;
     justify-content: space-between !important;
-    width: 83% !important;
+    padding: 15px;
 }
+
 
 @media only screen and (max-width:600px) {
     .tour-block{

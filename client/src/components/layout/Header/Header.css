@@ -110,7 +110,7 @@ nav .logoSection img{
     border-color: yellowgreen;
 }
 
-.navlist>ul li :before {
+.navlist>ul li ::before {
     content: '';
     display: block;
     position: absolute;
@@ -121,7 +121,7 @@ nav .logoSection img{
     transition: width 0s ease, background .35s ease;
 }
 
-.navlist>ul li :after {
+.navlist>ul li ::after {
     content: '';
     display: block;
     position: absolute;
@@ -135,7 +135,7 @@ nav .logoSection img{
     transition: width .35s ease;
 }
 
-.navlist>ul li :hover:before,
+.navlist>ul li :hover::before,
 .navlist>ul>li>a.active::before
     {
     width: 100%;
