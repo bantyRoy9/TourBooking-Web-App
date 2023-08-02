@@ -26,12 +26,12 @@ import './tourlocation.css'
         }
       ]
 const TourLocation = ({locations}) => {
+  // console.log(locations);
       // const string = JSON.stringify(location);
     // const locations = JSON.parse(string);
     //   const map = displayMap()
     //   console.log(map);
   return (
-
     <section id='map'><MapBox locations ={locations} /></section>
   )
 }

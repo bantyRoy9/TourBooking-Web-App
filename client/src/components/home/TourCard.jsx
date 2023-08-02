@@ -1,10 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import moment from 'moment'
-const TourCard = (props) => {
-  const tour = props.tour;
-
-  const cardStyle = props.cardStyle
+const TourCard = ({tour,cardStyle}) => {
   return (
     <>
         <div className={`card ${cardStyle}`}>
