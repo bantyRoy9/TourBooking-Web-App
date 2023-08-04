@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { NavLink, useParams, useNavigate } from 'react-router-dom';
 import { getAllTour } from '../../actions/tourAction';
-import TourCard from '../home/TourCard'
-import Form from '../layout/FilterForm/FilterForm';
-import Loading from '../layout/Loading/Loading';
+import TourCard from '../../Components/Cards/TourCard'
+import Form from '../../Components/layout/FilterForm/FilterForm';
+import Loading from '../../Components/layout/Loading/Loading';
 import Pagination from 'react-js-pagination';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';

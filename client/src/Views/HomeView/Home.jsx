@@ -1,15 +1,14 @@
 import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
 import { CgMouse } from "react-icons/cg";
-// import { useAlert } from 'react-alert';
 import { NavLink } from 'react-router-dom';
-
-import MetaHead from '../layout/MetaHead'
+import { useDispatch, useSelector } from 'react-redux';
+// import { useAlert } from 'react-alert';
+import Form from '../../Components/layout/FilterForm/FilterForm';
+import Loading from '../../Components/layout/Loading/Loading';
+import MetaHead from '../../Components/layout/MetaHead'
 import { getAllTour } from '../../actions/tourAction';
-import Loading from '../layout/Loading/Loading';
-import TourCard from './TourCard';
+import TourCard from '../../Components/Cards/TourCard';
 import './home.css'
-import Form from '../layout/FilterForm/FilterForm';
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -23,11 +22,6 @@ const Home = () => {
        !tours.length &&  dispatch(getAllTour())
     }, [dispatch, error, alert])
 
-    const generatePdf =()=>{
-        const element= document.getElementById("containerDownload");
-        // console.log(element);
-       // html2pdf().from(element).save();
-    }
     return (
         <>
             {loading ? <Loading /> : <>
@@ -54,7 +48,6 @@ const Home = () => {
                 </div>
                 <div id='containerDownload'>
                 <div className="container" id="container">
-
                     {tours && tours.map(tour => (
                             <NavLink to={`/tour/${tour._id}`}>
                             <TourCard tour={tour} />

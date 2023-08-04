@@ -1,17 +1,16 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from './components/home/Home';
-import Header from './components/layout/Header/Header';
-import webFont from 'webfontloader'
 import React from 'react';
-import Product from './components/Tour/Tour';
-import Footer from './components/layout/footer/Footer';
-import AllTour from './components/Tour/AllTour';
-import Search from './components/layout/Search/Search';
-import User from './components/User/User';
-import Profile from './components/User/Profile/Profile';
-import ProfileInfo from './components/User/Profile/ProfileInfo';
-import ProfilePass from './components/User/Profile/ProfilePass';
-import ProtectRoute from './components/ProtectRoute/ProtectRoute';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import webFont from 'webfontloader'
+import User from './Components/User/User';
+import Home from './Views/HomeView/Home';
+import Header from './Components/layout/Header/Header';
+import Footer from './Components/layout/footer/Footer';
+import Profile from './Components/User/Profile/Profile';
+import ProfileInfo from './Components/User/Profile/ProfileInfo';
+import ProfilePass from './Components/User/Profile/ProfilePass';
+import ProtectRoute from './Components/ProtectRoute/ProtectRoute';
+import Product from './Views/TourView/Tour';
+import AllTour from './Views/TourView/AllTour';
 
 import { loadUser } from './actions/userAction';
 

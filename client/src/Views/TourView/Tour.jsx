@@ -4,12 +4,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, NavLink, useLocation } from 'react-router-dom';
 // import Loading from '../layout/Loading/Loading';
 import { getAllTour, getTourDetail } from '../../actions/tourAction';
-import TourInfo from '../TourNav/TourInfo/TourInfo';
-import TourPlan from '../TourNav/TourPlan/TourPlan';
-import TourLocation from '../TourNav/TourLocation/TourLocation';
-import TourGallery from '../TourNav/TourGallery/TourGallery';
-import TourCard from '../home/TourCard';
-import Form from '../layout/FilterForm/FilterForm';
+import TourInfo from '../../Components/TourNav/TourInfo/TourInfo';
+import TourPlan from '../../Components/TourNav/TourPlan/TourPlan';
+import TourLocation from '../../Components/TourNav/TourLocation/TourLocation';
+import TourGallery from '../../Components/TourNav/TourGallery/TourGallery';
+import TourCard from '../../Components/Cards/TourCard';
+import Form from '../../Components/layout/FilterForm/FilterForm';
 import './tour.css'
 
 
