@@ -16,6 +16,7 @@ import { loadUser } from './actions/userAction';
 
 import store from './store'
 import './App.css';
+import { Page404, Page500 } from './Views/PageNotFound';
 
 function App() {
 
@@ -38,6 +39,8 @@ function App() {
         <Route exect path='/tours' element={<AllTour/>}></Route>
         <Route exect path='/tours/:keyword' element={<AllTour/>}></Route>
         <Route exect path='/tour/:id' element={<Product/>}></Route>
+        <Route exect path='*' element={<Page404 />}></Route>
+        {/* <Route exect path='/500' element={<Page500 />}></Route> */}
 
         {/* <Route  path='/search' element={<Search/>}></Route> */}
         <Route exect path='/login'  element={ <User isOpen={'openLoginModal'}/>}></Route>
