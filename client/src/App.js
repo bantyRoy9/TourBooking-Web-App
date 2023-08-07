@@ -49,6 +49,7 @@ function App() {
         <Route exect path='/password' element={<ProtectRoute Component={ProfilePass}/>}></Route>
         <Route exect path='/my-booking' element={<ProtectRoute Component={ProfileInfo}/>}></Route>
         <Route exect path='/settings' element={<ProtectRoute Component={ProfileInfo}/>}></Route>
+        {/* <Route path='/' element={props => <Defa}></Route>  */}
       </Routes>
       {/* <Footer/> */}
     </BrowserRouter>
