@@ -4,22 +4,23 @@ import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import './user.css'
 import { login, signUp } from '../../actions/userAction'
+import Loader from '../Loader/Loader'
 
 const User = ({isOpen,openModal}) => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
     const switcherTab = useRef(null);
     const signupTab = useRef(null);
     const loginTab = useRef(null);
-
+    
     const [loginEmail, setLoginEmail] = useState('');
     const [loginPassword, setLoginPassword] = useState('');
     const [avatarPreview, setAvatarPreview] = useState("/Profile.png");
     const [avatar, setAvatar] = useState("/Profile.png");
+    const [styles,setStyles] = useState('none');
 
-    const { isAuthenticated } = useSelector((state) => state.user)
+    const { loading,isAuthenticated } = useSelector((state) => state.user)
    // console.log(isAuthenticated, avatar, avatarPreview);
 
     const [user, setUser] = useState({
@@ -67,7 +68,7 @@ const User = ({isOpen,openModal}) => {
 
     useEffect(() => {
         if (isAuthenticated) {
-            navigate('/account');
+            openModal('close')
         }
     }, [isAuthenticated, navigate])
     const switchTab = (e, tab) => {
@@ -97,9 +98,10 @@ const User = ({isOpen,openModal}) => {
             console.log('ss')
         }
     }
-
+    //console.log(loading);
     return (
-        <>
+         <>
+            {/* <Loader propStyle = {!loading ? 'block':'none'}/>  */}
             <div className={`loginSignupContainer ${isOpen}`}>
             <div className="close"><i className='fa-solid fa-xmark' onClick={closeModal}></i></div>
 
@@ -179,6 +181,8 @@ const User = ({isOpen,openModal}) => {
                 </div> */}
             </div>
         </>
+        
+            
     )
 }
 

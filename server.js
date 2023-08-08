@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-
 const app = require('./app');
+
+const environment = process.env.NODE_ENV;
 
 dotenv.config({ path:'./config.env' })
 
@@ -14,6 +15,6 @@ mongoose.connect(DB).then(con=> {
 
 
 const PORT =process.env.PORT || 8000;
-app.listen(PORT,()=>{console.log(`surver running on port ${PORT}`);})
+app.listen(PORT,()=>{console.log(`server running on port ${PORT}`);})
 
 // console.log('work')

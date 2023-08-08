@@ -4,8 +4,11 @@ import { ERROR_CLEAR, ALL_TOUR_SUCCESS, ALL_TOUR_FAIL, ALL_TOUR_REQUEST,
 
 import axios from "axios";
 
-// const URL = 'https://tourbookingapp.onrender.com'
-const URL = 'http://localhost:8000'
+let URL = 'https://tourbookingapp.onrender.com'
+console.log(process.env.NODE_ENV);
+if(process.env.NODE_ENV ==='development'){
+    URL = 'http://localhost:8000'
+}
 
 export const getAllTour = (keyword=' ',currentPage= 1,category, sortBy='')=> async(dispatch)=>{
     try{

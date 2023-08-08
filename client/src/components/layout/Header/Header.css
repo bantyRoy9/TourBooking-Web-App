@@ -95,6 +95,10 @@ nav .logoSection img{
     /* top:0px; */
 
 }
+.nav_list{
+    display: flex;
+    align-items: center;
+}
 .nav_list>a:last-child i{
     border: 1px solid #1976bc;
     padding: 10px 12px;
