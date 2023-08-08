@@ -4,19 +4,19 @@ import { USER_REQUIEST,USER_SUCCESS,USER_ERROR, USER_FAIL ,
     USER_LOGOUT_REQUIEST,USER_LOGOUT_SUCCESS,USER_LOGOUT_FAIL } from "../constents/userConstants";
 
 import axios from "axios";
-// const URL = 'https://tourbookingapp.onrender.com'
-const URL = 'http://localhost:8000'
-
+let URL = 'https://tourbookingapp.onrender.com'
+console.log(process.env.NODE_ENV);
+if(process.env.NODE_ENV ==='development'){
+    URL = 'http://localhost:8000'
+}
 
 export const login =(email,password) => async(dispatch)=>{
     try{
         dispatch({type:USER_REQUIEST})
-
         const config = { headers: { "Content-Type": "application/json" } };
-
-
         const { data } = await axios.post(`${URL}/api/v1/users/login`,{email,password},config);
-
+        document.cookie = `jwt=${data?.token??null}`;
+        window.localStorage.setItem('cookie',data?.token??null);
         dispatch({type:USER_SUCCESS , payload : data.data.user})
        
     }catch(error){
@@ -46,8 +46,14 @@ export const signUp = (user)=> async(dispatch)=>{
 export const  loadUser = ()=> async(dispatch)=>{
     try{
         dispatch({type: LOAD_USER_REQUIEST})
-
-        const { data } = await axios.get(`${URL}/api/v1/users/me`)
+        const config = { 
+            headers: {
+                "authorization": `Bearer ${localStorage.getItem('cookie')}`, 
+                "Content-Type": "application/json"
+            },
+            withCredentials:true
+        };
+        const { data } = await axios.get(`${URL}/api/v1/users/me`,config)
 
         dispatch({type: LOAD_USER_SUCCESS, payload: data.data.data})
 
@@ -58,8 +64,11 @@ export const  loadUser = ()=> async(dispatch)=>{
 
 export const userLogout = () => async(dispatch)=>{
     try{
-        await axios.get(`${URL}/api/v1/users/logout`)
-
+        
+        const res = await axios.get(`${URL}/api/v1/users/logout`,{ withCredentials: true })
+        if(res.status){
+            localStorage.removeItem('cookie')
+        }
         dispatch({type: USER_LOGOUT_SUCCESS});
     }catch(error){
         dispatch({type: USER_LOGOUT_FAIL, payload:error.response.data.message})

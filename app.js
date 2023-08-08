@@ -15,8 +15,22 @@ const AppError = require('./utils/appError');
 const app = express();
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
+let allowOrigin = ["https://devtourbookingapp.netlify.app"];
+const environment = process.env.NODE_ENV;
+if(environment === 'development'){
+    allowOrigin = ["http://localhost:3001"]
+}
 
-app.use(cors());
+app.use(cors({
+    origin: function(origin,callback){
+        if(allowOrigin.includes(origin) || !origin){
+            callback(null,true)
+        }else{
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    credentials: true
+}));
 
 app.use(express.static(path.join(__dirname, 'public')));
 // app.use(helmets())
