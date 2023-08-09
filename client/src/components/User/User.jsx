@@ -35,8 +35,8 @@ const User = ({isOpen,openModal}) => {
     const loginSubmit = (e) => {
         e.preventDefault();
         //console.log(loginEmail, loginPassword);
+        setStyles('block')
         dispatch(login(loginEmail, loginPassword))
-
     }
     const signupSubmit = (e) => {
         e.preventDefault();
@@ -46,6 +46,7 @@ const User = ({isOpen,openModal}) => {
         data.set('email', email);
         data.set('password', password);
         data.set('passwordconfirm', passwordconfirm);
+        setStyles('block')
         dispatch(signUp(user));
         navigate('/');
     }
@@ -69,6 +70,7 @@ const User = ({isOpen,openModal}) => {
     useEffect(() => {
         if (isAuthenticated) {
             openModal('close')
+            setStyles('none')
         }
     }, [isAuthenticated, navigate])
     const switchTab = (e, tab) => {
@@ -95,13 +97,13 @@ const User = ({isOpen,openModal}) => {
             navigate('/')
         }else{
             openModal('close')
-            console.log('ss')
+            setStyles('none')
         }
     }
     //console.log(loading);
     return (
          <>
-            {/* <Loader propStyle = {!loading ? 'block':'none'}/>  */}
+            <Loader propStyle = {styles}/> 
             <div className={`loginSignupContainer ${isOpen}`}>
             <div className="close"><i className='fa-solid fa-xmark' onClick={closeModal}></i></div>
 
