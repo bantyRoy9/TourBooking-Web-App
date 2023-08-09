@@ -33,7 +33,11 @@ module.exports = (err,req,res,next)=>{
         
         if(error.name === 'CastError') error = handleCaseErrorDB(error);
 
-        
+        return res.status(err.statusCode).json({
+            status: err.status,
+            error : err,
+            message: err.message
+        });
         
     }
 }
