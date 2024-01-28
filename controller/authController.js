@@ -33,18 +33,17 @@ const createSendToken = (user, statusCode, res) => {
 }
 
 exports.signUp = catchAsync(async (req, res, next) => {
-    console.log(req.body);
+    const user = await User.find({email:req.body.email});
+    if(user.length) return next(new AppError('User already exists!',409));
     const newUser = await User.create({
         name: req.body.name,
         email: req.body.email,
         password: req.body.password,
         passwordconfirm: req.body.passwordconfirm
     });
-    const url = `${req.protocol}://${req.get('host')}/me`;
-    // console.log(url);
-    await new Email(newUser, url).sendWelcome()
+    // const url = `${req.protocol}://${req.get('host')}/me`;
+    // await new Email(newUser, url).sendWelcome()
     createSendToken(newUser, 201, res)
-
 })
 
 exports.login = catchAsync(async (req, res, next) => {
@@ -73,11 +72,8 @@ exports.login = catchAsync(async (req, res, next) => {
         if (!user || !(await user.correctPassword(password, user.password))) {
             return next(new AppError('incorrect user email or password', 401))
         }
-
         createSendToken(user, 200, res);
-
     }
-
 });
 
 exports.logout = async (req, res, next) => {
@@ -166,7 +162,7 @@ exports.forgetPassword = catchAsync(async (req, res, next) => {
     await user.save({ validateBeforeSave: false })
 
     try {
-        const resetURL = `${req.protocol}://${req.get('host')}/api/v1/users/resetPassword/${resetToken}`
+        const resetURL = `${req.protocol}://${req.get('host')}/api2/v1/users/resetPassword/${resetToken}`
         await new Email(user, resetURL).restPassword();
 
         res.status(200).json({

@@ -7,7 +7,7 @@ import { showAlert } from './alert'
 
 //         const res = await axios({
 //             method: 'POST',
-//             url: '/api/v1/users/signUp',
+//             url: '/api2/v1/users/signUp',
 //             data: {
 //                 name, email, password, passwordconfirm
 //             }
@@ -29,7 +29,7 @@ export const login = async (email, password) => {
     try {
         const res = await axios({
             method: 'POST',
-            url: '/api/v1/users/login',
+            url: '/api2/v1/users/login',
             data: {
                 email,
                 password
@@ -53,7 +53,7 @@ export const logout = async (req, res, next) => {
     try {
         const res = await axios({
             method: 'GET',
-            url: '/api/v1/users/logout',
+            url: '/api2/v1/users/logout',
         });
         if ((res.data.status = 'success')) location.reload(true);
     } catch (err) {
