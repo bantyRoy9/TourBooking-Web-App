@@ -14,7 +14,7 @@ export const login =(email,password) => async(dispatch)=>{
     try{
         dispatch({type:USER_REQUIEST})
         const config = { headers: { "Content-Type": "application/json" } };
-        const { data } = await axios.post(`${URL}/api/v1/users/login`,{email,password},config);
+        const { data } = await axios.post(`${URL}/api2/v1/users/login`,{email,password},config);
         document.cookie = `jwt=${data?.token??null}`;
         window.localStorage.setItem('cookie',data?.token??null);
         dispatch({type:USER_SUCCESS , payload : data.data.user})
@@ -32,7 +32,7 @@ export const signUp = (user)=> async(dispatch)=>{
         const config = { headers: { "Content-Type": "application/json" } };
 
 
-        const { data } = await axios.post(`${URL}/api/v1/users/signUp`, user, config)
+        const { data } = await axios.post(`${URL}/api2/v1/users/signUp`, user, config)
 
         dispatch({type:USER_REGISTER_SUCCESS, payload: data.data.user})
 
@@ -53,7 +53,7 @@ export const  loadUser = ()=> async(dispatch)=>{
             },
             withCredentials:true
         };
-        const { data } = await axios.get(`${URL}/api/v1/users/me`,config)
+        const { data } = await axios.get(`${URL}/api2/v1/users/me`,config)
 
         dispatch({type: LOAD_USER_SUCCESS, payload: data.data.data})
 
@@ -65,7 +65,7 @@ export const  loadUser = ()=> async(dispatch)=>{
 export const userLogout = () => async(dispatch)=>{
     try{
         
-        const res = await axios.get(`${URL}/api/v1/users/logout`,{ withCredentials: true })
+        const res = await axios.get(`${URL}/api2/v1/users/logout`,{ withCredentials: true })
         if(res.status){
             localStorage.removeItem('cookie')
         }

@@ -204,13 +204,13 @@
 
 }
 .homeHeading>h1>span::before{
-  content:'';
-  width: 40%;
+  /* content:'';
+  width: 28%;
   height: 13%;
   z-index: -1;
   top: 85px;
   position: absolute;
-  /* background-image: var(--background-image-gredient); */
+  background-image: var(--background-image-gredient); */
 
 }
 .container{

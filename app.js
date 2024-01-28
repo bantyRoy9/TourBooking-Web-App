@@ -39,7 +39,7 @@ const limiter = applimit({
     windowMs: 60 * 60 * 1000,
     message: 'to many Api Request!! Please Login again'
 })
-app.use('/api', limiter);
+app.use('/api2', limiter);
 app.use(express.json({ limit: '14kb' }));
 app.use(bodyParser())
 app.use(express.urlencoded({ extended: true, limit: '14kb' }));
@@ -66,10 +66,10 @@ const viewRouter = require('./routes/viewRouter');
 const bookingRouter = require('./routes/bookingRouter');
 
 app.use('/', viewRouter);
-app.use('/api/v1/tours', tourRouter);
-app.use('/api/v1/users', userRouter);
-app.use('/api/v1/reviews', reviewRouter);
-app.use('/api/v1/bookings', bookingRouter)
+app.use('/api2/v1/tours', tourRouter);
+app.use('/api2/v1/users', userRouter);
+app.use('/api2/v1/reviews', reviewRouter);
+app.use('/api2/v1/bookings', bookingRouter)
 
 app.all('*', (req, res, next) => {
     next(new AppError(`Can't found ${req.originalUrl} on this server`, 404));
