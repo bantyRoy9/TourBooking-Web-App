@@ -4,8 +4,8 @@ import { USER_REQUIEST,USER_SUCCESS,USER_ERROR, USER_FAIL ,
     USER_LOGOUT_REQUIEST,USER_LOGOUT_SUCCESS,USER_LOGOUT_FAIL } from "../constents/userConstants";
 
 import axios from "axios";
-let URL = process.env.REACT_APP_PROD_URL
-console.log(process.env.NODE_ENV);
+let URL = "https://tourbookingapp.onrender.com/api2/v1"
+
 if(process.env.NODE_ENV ==='development'){
     URL = 'http://localhost:8001'
 }

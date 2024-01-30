@@ -8855,7 +8855,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //     try {
 //         const res = await axios({
 //             method: 'POST',
-//             url: '/api/v1/users/signUp',
+//             url: '/api2/v1/users/signUp',
 //             data: {
 //                 name, email, password, passwordconfirm
 //             }
@@ -8882,7 +8882,7 @@ var login = /*#__PURE__*/function () {
             _context.next = 3;
             return (0, _axios.default)({
               method: 'POST',
-              url: '/api/v1/users/login',
+              url: '/api2/v1/users/login',
               data: {
                 email: email,
                 password: password
@@ -8935,7 +8935,7 @@ var logout = /*#__PURE__*/function () {
             _context2.next = 3;
             return (0, _axios.default)({
               method: 'GET',
-              url: '/api/v1/users/logout'
+              url: '/api2/v1/users/logout'
             });
 
           case 3:
@@ -8988,7 +8988,7 @@ var updateAccountSetting = /*#__PURE__*/function () {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            url = type === 'password' ? '/api/v1/users/updatePassword' : '/api/v1/users/updateMe';
+            url = type === 'password' ? '/api2/v1/users/updatePassword' : '/api2/v1/users/updateMe';
             _context.prev = 1;
             _context.next = 4;
             return (0, _axios.default)({
@@ -9059,7 +9059,7 @@ var bookTour = /*#__PURE__*/function () {
           case 0:
             _context.prev = 0;
             _context.next = 3;
-            return (0, _axios.default)("/api/v1/bookings/checkout-session/".concat(tourId));
+            return (0, _axios.default)("/api2/v1/bookings/checkout-session/".concat(tourId));
 
           case 3:
             session = _context.sent;
