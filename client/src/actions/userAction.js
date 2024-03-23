@@ -5,9 +5,10 @@ import { USER_REQUIEST,USER_SUCCESS,USER_ERROR, USER_FAIL ,
 
 import axios from "axios";
 let URL = "https://tourbookingapp.onrender.com/api2/v1"
+URL = "https://tourbooking.banti.cloud/api2/v1"
 
 if(process.env.NODE_ENV ==='development'){
-    URL = 'http://localhost:8001'
+    //URL = 'http://localhost:8001'
 }
 
 export const login =(email,password) => async(dispatch)=>{
