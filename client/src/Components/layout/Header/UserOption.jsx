@@ -11,12 +11,12 @@ const UserOption = ({ user }) => {
     const [ open , setOpen] = useState(false);
 
     const option = [
-        {name:'My Bookings',icon:<i class="fa-solid fa-bus"></i>,func:bookings},
-        {name:'Account',icon:<i class="fa-solid fa-gear"></i>,func:account},
-        {name:'Logout',icon:<i class="fa-solid fa-arrow-right-from-bracket"></i>,func:logoutUser}
+        {name:'My Bookings',icon:<i className="fa-solid fa-bus"></i>,func:bookings},
+        {name:'Account',icon:<i className="fa-solid fa-gear"></i>,func:account},
+        {name:'Logout',icon:<i className="fa-solid fa-arrow-right-from-bracket"></i>,func:logoutUser}
     ];
     if(user && user.role === "admin"){
-        option.unshift({name:'DashBoard',icon:<i class="fa-solid fa-grip"></i>,func:dashbord})
+        option.unshift({name:'DashBoard',icon:<i className="fa-solid fa-grip"></i>,func:dashbord})
     };
 
     function dashbord(){

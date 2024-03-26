@@ -9,22 +9,19 @@ import MetaHead from '../../Components/layout/MetaHead'
 import { getAllTour } from '../../actions/tourAction';
 import TourCard from '../../Components/Cards/TourCard';
 import './home.css'
+import Alert from '../../Components/layout/Alert/Alert';
 
 const Home = () => {
     const dispatch = useDispatch();
-    const { loading, error, tours } = useSelector((state) => state.tours)
-    // const alert = useAlert();
+    const { error, tours } = useSelector((state) => state.tours)
     useEffect(() => {
         if (error) {
-            // return alert.error(error)
-            alert(error)
         }
-       !tours.length &&  dispatch(getAllTour())
+        !tours.length &&  dispatch(getAllTour())
     }, [dispatch, error, alert])
-
+    
     return (
-        <>
-            {loading ? <Loading /> : <>
+            <>
                 <MetaHead title='Tour Booking App' />
                 <div className="banner">
                     <main className='home-slider'>
@@ -69,8 +66,6 @@ const Home = () => {
                     ))}
                 </div>
                 </div>
-                </>
-            }
         </>
     )
 }
