@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { NavLink, useParams, useNavigate } from 'react-router-dom';
-import { getAllTour } from '../../actions/tourAction';
 import TourCard from '../../Components/Cards/TourCard'
 import Form from '../../Components/layout/FilterForm/FilterForm';
-import Loading from '../../Components/layout/Loading/Loading';
 import Pagination from 'react-js-pagination';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-
+import './tour.css'
+import Alert from '../../Components/layout/Alert/Alert';
+import { getAllTour } from '../../Redux';
 const categories = ['adventure', 'wildlife', 'city-wander', 'festival', 'First Minute', 'new year']
 
 
@@ -24,9 +24,8 @@ const AllTour = () => {
   const dispatch = useDispatch();
   const { loading, error, tours, resultPerpage, length } = useSelector((state) => state.tours)
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   let { keyword } = useParams();
-  // console.log(keyword)
   const setCurrentPageNo = (e) => {
     setCurrentPage(e)
   }
@@ -41,20 +40,18 @@ const AllTour = () => {
   }
   useEffect(() => {
     if (error) {
-    //  console.log(error);git
+      Alert(error,"E");
     }
-    
     dispatch(getAllTour(keyword, currentPage,category,sortBy))
-  }, [dispatch, error, keyword, currentPage,category,sortBy])
+  }, [keyword, currentPage,category,sortBy])
 
   window.onscroll = function () {
     let offset = window.pageYOffset;
     setScroller({ backgroundPositionY: offset * 0.5 + 'px' })
   }
+  
   return (
     <>
-      {
-        loading ? <Loading /> : <>
           <section className='tour-slider tours-slider' style={scroller}>
             <div className="tour-title">
               Tour Search
@@ -69,8 +66,8 @@ const AllTour = () => {
                   <label htmlFor={'category'}>All Tours</label>
               {categories.map((category,idx) => (
                 <>
-                  <input key={idx} type="radio" name='category' value={category} onClick={(e) => {setCategory(e.target.value); setCatActive('') }} />
-                  <label key={idx} htmlFor={category}> {category}</label><br />
+                  <input key={`input${idx}`} type="radio" name='category' value={category} onClick={(e) => {setCategory(e.target.value); setCatActive('') }} />
+                  <label key={`label${idx}`} htmlFor={category}> {category}</label><br />
                 </>
               ))}
               </div>
@@ -98,10 +95,10 @@ const AllTour = () => {
             </div>
           </div>
           <div className="container" id="container">
-            {tours.length === 0 ? <h1>Sorry! Not Found ({category}) </h1> : <>
+            {tours && tours.length === 0 ? <h1>Sorry! Not Found ({category}) </h1> : <>
             {tours && tours.map((tour,idx) => (
-              <NavLink key={idx} to={`/tour/${tour._id}`}>
-                <TourCard tour={tour} cardStyle='tourcard' />
+              <NavLink key={`{navLink${idx}`} to={`/tour/${tour._id}`}>
+                <TourCard tour={tour} cardStyle='tourcard' keyIndex={`tour${idx}`}/>
               </NavLink>
             ))}
             </>
@@ -127,8 +124,6 @@ const AllTour = () => {
                 activeLinkclassName='page-link-active'
               />
             </div>
-          }
-        </>
       }
     </>
   )

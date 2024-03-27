@@ -15,10 +15,10 @@ const AppError = require('./utils/appError');
 const app = express();
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
-let allowOrigin = ["https://devtourbookingapp.netlify.app"];
+let allowOrigin = ["https://devtourbookingapp.netlify.app","https:tourbooking.banti.cloud","http://localhost:3001","http://localhost:3000"];
 const environment = process.env.NODE_ENV;
 if(environment === 'development'){
-    allowOrigin = ["http://localhost:3001"]
+    allowOrigin = ["http://localhost:3001","http://localhost:3000"]
 }
 
 app.use(cors({

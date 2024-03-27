@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { SpeedDial, SpeedDialAction } from '@mui/material'
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { userLogout } from '../../../actions/userAction';
 import { Backdrop } from '@mui/material';
+import { userLogout } from '../../../Redux';
 const UserOption = ({ user }) => {
     const dispatch = useDispatch()
     const navigate = useNavigate();
@@ -11,12 +11,12 @@ const UserOption = ({ user }) => {
     const [ open , setOpen] = useState(false);
 
     const option = [
-        {name:'My Bookings',icon:<i class="fa-solid fa-bus"></i>,func:bookings},
-        {name:'Account',icon:<i class="fa-solid fa-gear"></i>,func:account},
-        {name:'Logout',icon:<i class="fa-solid fa-arrow-right-from-bracket"></i>,func:logoutUser}
+        {name:'My Bookings',icon:<i className="fa-solid fa-bus"></i>,func:bookings},
+        {name:'Account',icon:<i className="fa-solid fa-gear"></i>,func:account},
+        {name:'Logout',icon:<i className="fa-solid fa-arrow-right-from-bracket"></i>,func:logoutUser}
     ];
     if(user && user.role === "admin"){
-        option.unshift({name:'DashBoard',icon:<i class="fa-solid fa-grip"></i>,func:dashbord})
+        option.unshift({name:'DashBoard',icon:<i className="fa-solid fa-grip"></i>,func:dashbord})
     };
 
     function dashbord(){
@@ -50,9 +50,9 @@ const UserOption = ({ user }) => {
         <img className='speedDialIcon' src={`/img/users/${user.photo}`} alt='profile'/>
     }
     >
-        {option.map(item=>(
+        {option.map((item,idx)=>(
             <SpeedDialAction
-            key={item.name} 
+            key={`header${idx}`} 
             icon={item.icon}
             tooltipTitle={item.name}
             onClick={item.func}

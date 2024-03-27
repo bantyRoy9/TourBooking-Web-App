@@ -1,5 +1,5 @@
 import { ERROR_CLEAR, ALL_TOUR_SUCCESS, ALL_TOUR_FAIL, ALL_TOUR_REQUEST,
-    TOUR_DETAIL_SUCCESS,TOUR_DETAIL_REQUEST,TOUR_DETAIL_FAIL } from "../constents/tourConstants";
+    TOUR_DETAIL_SUCCESS,TOUR_DETAIL_REQUEST,TOUR_DETAIL_FAIL } from "../Constents/tourConstants";
 
 export const tourReducer = (state={ tours : []}, action)=>{
 

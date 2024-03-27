@@ -1,5 +1,5 @@
 import { ERROR_CLEAR, ALL_TOUR_SUCCESS, ALL_TOUR_FAIL, ALL_TOUR_REQUEST,
-        TOUR_DETAIL_REQUEST,TOUR_DETAIL_SUCCESS,TOUR_DETAIL_FAIL } from "../constents/tourConstants";
+        TOUR_DETAIL_REQUEST,TOUR_DETAIL_SUCCESS,TOUR_DETAIL_FAIL } from "../Constents/tourConstants";
 
 
 import axios from "axios";
@@ -9,6 +9,7 @@ URL = URL = "https://tourbooking.banti.cloud/api2/v1";
 if(process.env.NODE_ENV ==='development'){
 //    URL = process.env.REACT_APP_DEV_URL
 }
+
 
 export const getAllTour = (keyword='',currentPage= 1,category, sortBy='')=> async(dispatch)=>{
     try{
@@ -25,7 +26,7 @@ export const getAllTour = (keyword='',currentPage= 1,category, sortBy='')=> asyn
     }catch(error){
         dispatch({
             type:ALL_TOUR_FAIL,
-            payload:error?.response.data?.message
+            payload:error?.response.data?.message??"Something wrong happend"
         })
     }
 }
