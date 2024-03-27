@@ -1,57 +1,51 @@
-import React from 'react';
+import React, { useEffect,lazy } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import webFont from 'webfontloader'
-import User from './Components/User/User';
-import Home from './Views/HomeView/Home';
-import Header from './Components/layout/Header/Header';
-import Footer from './Components/layout/footer/Footer';
-import Profile from './Components/User/Profile/Profile';
-import ProfileInfo from './Components/User/Profile/ProfileInfo';
-import ProfilePass from './Components/User/Profile/ProfilePass';
-import ProtectRoute from './Components/ProtectRoute/ProtectRoute';
-import Product from './Views/TourView/Tour';
-import AllTour from './Views/TourView/AllTour';
-
-import { loadUser } from './actions/userAction';
-
-import store from './store'
+import { load } from 'webfontloader'
+import { loadUser } from './Redux/Actions/userAction';
+import store from './Redux/store'
 import './App.css';
-import { Page404, Page500 } from './Views/PageNotFound';
+import { Page404 } from './Views/PageNotFound';
+import { useSelector } from 'react-redux';
+
+const User = lazy(()=> import('./Components/User/User'));
+const Home = lazy(()=>import('./Views/HomeView/Home'));
+const Header = lazy(()=>import('./Components/layout/Header/Header'));
+const Profile = lazy(()=>import('./Components/User/Profile/Profile'));
+const ProfileInfo = lazy(()=>import('./Components/User/Profile/ProfileInfo'));
+const ProfilePass = lazy(()=>import('./Components/User/Profile/ProfilePass'));
+const ProtectRoute = lazy(()=>import('./Components/Routes/ProtectRoute'));
+const Product = lazy(()=>import('./Views/TourView/Tour'));
+const AllTour = lazy(()=>import('./Views/TourView/AllTour'));
+
+
 
 function App() {
-
-  React.useEffect(()=>{
-    webFont.load({
+  useEffect(()=>{
+    load({
       google:{
-        families:["Roboto","Droid sans","Chilanka"]
+        families:["Roboto","Droid sans","Chilanka","Craftworkgrotesk","sans-serif"]
       }
     })
     store.dispatch(loadUser())
   },[])
-
+  const { isAuthenticated } = useSelector(state=> state.user);
   return (
     <>
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route exect path='' element={<Home/>}></Route>
-
-        <Route exect path='/tours' element={<AllTour/>}></Route>
-        <Route exect path='/tours/:keyword' element={<AllTour/>}></Route>
-        <Route exect path='/tour/:id' element={<Product/>}></Route>
         <Route exect path='*' element={<Page404 />}></Route>
-        {/* <Route exect path='/500' element={<Page500 />}></Route> */}
-
-        {/* <Route  path='/search' element={<Search/>}></Route> */}
-        <Route exect path='/login'  element={ <User isOpen={'openLoginModal'}/>}></Route>
-        <Route exect path='/account' element={<ProtectRoute Component={Profile}/>}></Route>
-        <Route exect path='/address' element={<ProtectRoute Component={ProfileInfo}/>}></Route>
-        <Route exect path='/password' element={<ProtectRoute Component={ProfilePass}/>}></Route>
-        <Route exect path='/my-booking' element={<ProtectRoute Component={ProfileInfo}/>}></Route>
-        <Route exect path='/settings' element={<ProtectRoute Component={ProfileInfo}/>}></Route>
-        {/* <Route path='/' element={props => <Defa}></Route>  */}
+        <Route exect path='/' element={<ProtectRoute Component={Home} isProtected={true}/>}></Route>
+        <Route exect path='/tours' element={<ProtectRoute Component={AllTour} isProtected={true}/>}></Route>
+        <Route exect path='/tours/:keyword' element={<ProtectRoute Component={AllTour} isProtected={true}/>}></Route>
+        <Route exect path='/tour/:id' element={<ProtectRoute Component={Product} isProtected={true}/>}></Route>
+        <Route exect path='/login'  element={<ProtectRoute Component={User} isProtected={true} isOpen={'openLoginModal'}/>}></Route>
+        <Route exect path='/account' element={<ProtectRoute Component={Profile} isProtected={isAuthenticated}/>}></Route>
+        <Route exect path='/address' element={<ProtectRoute Component={ProfileInfo} isProtected={isAuthenticated}/>}></Route>
+        <Route exect path='/password' element={<ProtectRoute Component={ProfilePass} isProtected={isAuthenticated}/>}></Route>
+        <Route exect path='/my-booking' element={<ProtectRoute Component={ProfileInfo} isProtected={isAuthenticated}/>}></Route>
+        <Route exect path='/settings' element={<ProtectRoute Component={ProfileInfo} isProtected={isAuthenticated}/>}></Route>
       </Routes>
-      {/* <Footer/> */}
     </BrowserRouter>
     </>
   );

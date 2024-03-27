@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { ReactNavbar } from 'overlay-navbar'
 import './Header.css'
-import logo from './../../../img/logo-green.png'
+import logo from './../../../Assests/img/logo-green.png';
 import { useSelector } from 'react-redux';
 import UserOption from './UserOption';
-import { navigationUrl } from '../../../json/navList'
+import { navigationUrl } from '../../../Assests/json/navList'
 import Search from '../Search/Search'
 import User from '../../User/User'
 const option ={

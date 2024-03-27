@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-// import { useAlert } from 'react-alert';
 import { useParams, NavLink, useLocation } from 'react-router-dom';
-// import Loading from '../layout/Loading/Loading';
-import { getAllTour, getTourDetail } from '../../actions/tourAction';
 import TourInfo from '../../Components/TourNav/TourInfo/TourInfo';
 import TourPlan from '../../Components/TourNav/TourPlan/TourPlan';
 import TourLocation from '../../Components/TourNav/TourLocation/TourLocation';
 import TourGallery from '../../Components/TourNav/TourGallery/TourGallery';
-import TourCard from '../../Components/Cards/TourCard';
 import Form from '../../Components/layout/FilterForm/FilterForm';
+import { getAllTour, getTourDetail } from '../../Redux';
 import './tour.css'
 
 

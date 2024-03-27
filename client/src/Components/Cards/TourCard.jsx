@@ -1,10 +1,10 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import moment from 'moment'
-const TourCard = ({tour,cardStyle}) => {
+const TourCard = ({tour,cardStyle,keyIndex}) => {
   return (
     <>
-        <div className={`card ${cardStyle}`}>
+        <div className={`card ${cardStyle}`} key={keyIndex}>
           <span>₹{tour.price}</span>
           <div className="card__header">
 

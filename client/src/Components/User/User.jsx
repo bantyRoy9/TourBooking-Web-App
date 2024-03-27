@@ -1,60 +1,44 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
-
 import { useDispatch, useSelector } from 'react-redux'
 import './user.css'
-import { login, signUp } from '../../actions/userAction'
-import Loader from '../Loader/Loader'
+import Loader from '../layout/Loading/Loader'
+import Alert from '../layout/Alert/Alert'
+import { login, signUp } from '../../Redux'
 
 const User = ({isOpen,openModal}) => {
-
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const switcherTab = useRef(null);
     const signupTab = useRef(null);
     const loginTab = useRef(null);
-    
     const [loginEmail, setLoginEmail] = useState('');
     const [loginPassword, setLoginPassword] = useState('');
     const [avatarPreview, setAvatarPreview] = useState("/Profile.png");
     const [avatar, setAvatar] = useState("/Profile.png");
-    const [styles,setStyles] = useState('none');
 
-    const { loading,isAuthenticated } = useSelector((state) => state.user)
-   // console.log(isAuthenticated, avatar, avatarPreview);
+    const { loading,isAuthenticated,error } = useSelector((state) => state.user);
 
-    const [user, setUser] = useState({
-        name: '',
-        email: '',
-        password: '',
-        passwordconfirm: ''
-    });
-
+    const [user, setUser] = useState({name: '',email: '',password: '',passwordconfirm: ''});
     const { name, email, password, passwordconfirm } = user
-
     const loginSubmit = (e) => {
         e.preventDefault();
-        //console.log(loginEmail, loginPassword);
-        setStyles('block')
         dispatch(login(loginEmail, loginPassword))
-    }
+    };
+
     const signupSubmit = (e) => {
         e.preventDefault();
         const data = new FormData();
-
         data.set('name', name);
         data.set('email', email);
         data.set('password', password);
         data.set('passwordconfirm', passwordconfirm);
-        setStyles('block')
-        dispatch(signUp(user));
-        navigate('/');
+        dispatch(signUp(user),navigate);
     }
 
     const signupChangeHandler = (e) => {
         if (e.target.name === 'avatar') {
             const reader = new FileReader();
-            //console.log('avatar');
             reader.onload = () => {
                 if (reader.readyState === 2) {
                     setAvatarPreview(reader.result);
@@ -65,14 +49,13 @@ const User = ({isOpen,openModal}) => {
         } else {
             setUser({ ...user, [e.target.name]: e.target.value })
         }
-    }
+    };
 
     useEffect(() => {
-        if (isAuthenticated) {
-            openModal('close')
-            setStyles('none')
-        }
-    }, [isAuthenticated, navigate])
+        isAuthenticated && openModal('close');
+        error && Alert(error,"E")
+    }, [isAuthenticated,error]);
+
     const switchTab = (e, tab) => {
         if (tab === 'login') {
             switcherTab.current.classList.add('shiftToNormal')
@@ -88,22 +71,15 @@ const User = ({isOpen,openModal}) => {
 
             loginTab.current.classList.add('shiftToLeft');
             signupTab.current.classList.add('signupFormNormal')
-        }
-    }
+        };
+    };
 
     const closeModal = () =>{
-        // console.log('dsaff',window.location.href.includes('login'));
-        if(window.location.href.includes('login')){
-            navigate('/')
-        }else{
-            openModal('close')
-            setStyles('none')
-        }
-    }
-    //console.log(loading);
+        window.location.href.includes('login') ? navigate('/') : openModal('close');
+    };
     return (
          <>
-            <Loader propStyle = {styles}/> 
+            <Loader propStyle = {loading?"block":"none"}/> 
             <div className={`loginSignupContainer ${isOpen}`}>
             <div className="close"><i className='fa-solid fa-xmark' onClick={closeModal}></i></div>
 
@@ -164,23 +140,6 @@ const User = ({isOpen,openModal}) => {
 
                     </form>
                 </div>
-
-
-
-                {/* <div>
-                    <svg className="waves" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
-                        viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-                        <defs>
-                            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-                        </defs>
-                        <g className="parallax">
-                            <use xlinkHref="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
-                            <use xlinkHref="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
-                            <use xlinkHref="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
-                            <use xlinkHref="#gentle-wave" x="48" y="7" fill="#fff" />
-                        </g>
-                    </svg>
-                </div> */}
             </div>
         </>
         
