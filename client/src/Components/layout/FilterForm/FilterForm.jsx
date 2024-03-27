@@ -26,12 +26,12 @@ const Form = ({styles}) => {
     <>  
         <div className={`form-container ${styles}`}>
             <form onSubmit={submithandler}>
-                <input type="text" name='search' placeholder='Tours Keyword' onChange={changehandle}/>
-                <input type="text" name='difficulty' placeholder='select your destination' onChange={changehandle}/>
-                <input type='text' name='createAt'  placeholder='departure date' onFocus={(e)=>e.target.type='month'} onBlur={(e)=>e.target.type='text'} onChange={changehandle}/>
-                <input type="number" name='gtePrice' placeholder='price from' onChange={changehandle}/>
-                <input type="number" name='ltePrice' placeholder='price to' onChange={changehandle}/>
-                <input type="submit" placeholder='find your tour' value='Find Your Tour' />
+                <input type="text" name='search' placeholder='Tours keyword' onChange={changehandle}/>
+                <input type="text" name='difficulty' placeholder='Select your destination' onChange={changehandle}/>
+                <input type='text' name='createAt'  placeholder='Departure date' onFocus={(e)=>e.target.type='month'} onBlur={(e)=>e.target.type='text'} onChange={changehandle}/>
+                <input type="number" name='gtePrice' placeholder='Price from' onChange={changehandle}/>
+                <input type="number" name='ltePrice' placeholder='Price to' onChange={changehandle}/>
+                <input type="submit" placeholder='Find your tour' value='Find Your Tour' />
             </form>
         </div>
     </>
