@@ -4,10 +4,10 @@ import { USER_REQUIEST,USER_SUCCESS,USER_ERROR, USER_FAIL ,
     USER_LOGOUT_REQUIEST,USER_LOGOUT_SUCCESS,USER_LOGOUT_FAIL } from "../Constents/userConstants";
 
 import axios from "axios";
-let URL = process.env.REACT_APP_PROD_URL;
+let URL = process.env.REACT_APP_PROD_URL
 if(process.env.NODE_ENV ==='development'){
-    URL = process.env.REACT_APP_DEV_URL;
-};
+    URL = process.env.REACT_APP_DEV_URL
+}
 
 export const login =(email,password) => async(dispatch)=>{
     try{
