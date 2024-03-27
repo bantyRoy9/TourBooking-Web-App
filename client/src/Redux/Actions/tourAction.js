@@ -4,10 +4,9 @@ import { ERROR_CLEAR, ALL_TOUR_SUCCESS, ALL_TOUR_FAIL, ALL_TOUR_REQUEST,
 
 import axios from "axios";
 
-let URL = "https://tourbookingapp.onrender.com/api2/v1"
-URL = URL = "https://tourbooking.banti.cloud/api2/v1";
+let URL = process.env.REACT_APP_PROD_URL
 if(process.env.NODE_ENV ==='development'){
-//    URL = process.env.REACT_APP_DEV_URL
+    URL = process.env.REACT_APP_DEV_URL
 }
 
 

@@ -4,11 +4,9 @@ import { USER_REQUIEST,USER_SUCCESS,USER_ERROR, USER_FAIL ,
     USER_LOGOUT_REQUIEST,USER_LOGOUT_SUCCESS,USER_LOGOUT_FAIL } from "../Constents/userConstants";
 
 import axios from "axios";
-let URL = "https://tourbookingapp.onrender.com/api2/v1"
-URL = "https://tourbooking.banti.cloud/api2/v1"
-
+let URL = process.env.REACT_APP_PROD_URL
 if(process.env.NODE_ENV ==='development'){
-    //URL = 'http://localhost:8001'
+    URL = process.env.REACT_APP_DEV_URL
 }
 
 export const login =(email,password) => async(dispatch)=>{
