@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-
+import Alert from '../Alert/Alert';
+import { Bounce, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; 
 const ErrorBoundary = ({ children }) => {
   const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
-    const handleErrors = (error, errorInfo) => {
-      console.error('Error caught by error boundary:', error, errorInfo);
+    const handleErrors = (error, errorInfo) => {      
+      Alert("Something wrong happen","S");
       setHasError(true);
     };
 
@@ -15,9 +17,9 @@ const ErrorBoundary = ({ children }) => {
       window.removeEventListener('error', handleErrors);
     };
   }, []);
-
+  
   if (hasError) {
-    return <div>Something went wrong.</div>; // Render your error message or fallback UI
+    return <div style={{textAlign:"center"}}>Something wrong happened</div>
   }
 
   return children;

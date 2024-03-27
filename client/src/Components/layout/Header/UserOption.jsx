@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { SpeedDial, SpeedDialAction } from '@mui/material'
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { userLogout } from '../../../actions/userAction';
 import { Backdrop } from '@mui/material';
+import { userLogout } from '../../../Redux';
 const UserOption = ({ user }) => {
     const dispatch = useDispatch()
     const navigate = useNavigate();
@@ -50,9 +50,9 @@ const UserOption = ({ user }) => {
         <img className='speedDialIcon' src={`/img/users/${user.photo}`} alt='profile'/>
     }
     >
-        {option.map(item=>(
+        {option.map((item,idx)=>(
             <SpeedDialAction
-            key={item.name} 
+            key={`header${idx}`} 
             icon={item.icon}
             tooltipTitle={item.name}
             onClick={item.func}

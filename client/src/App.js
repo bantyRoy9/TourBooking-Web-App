@@ -1,8 +1,8 @@
 import React, { useEffect,lazy } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { load } from 'webfontloader'
-import { loadUser } from './actions/userAction';
-import store from './store'
+import { loadUser } from './Redux/Actions/userAction';
+import store from './Redux/store'
 import './App.css';
 import { Page404 } from './Views/PageNotFound';
 import { useSelector } from 'react-redux';
@@ -10,7 +10,6 @@ import { useSelector } from 'react-redux';
 const User = lazy(()=> import('./Components/User/User'));
 const Home = lazy(()=>import('./Views/HomeView/Home'));
 const Header = lazy(()=>import('./Components/layout/Header/Header'));
-const Footer = lazy(()=>import('./Components/layout/footer/Footer'));
 const Profile = lazy(()=>import('./Components/User/Profile/Profile'));
 const ProfileInfo = lazy(()=>import('./Components/User/Profile/ProfileInfo'));
 const ProfilePass = lazy(()=>import('./Components/User/Profile/ProfilePass'));
@@ -30,7 +29,6 @@ function App() {
     store.dispatch(loadUser())
   },[])
   const { isAuthenticated } = useSelector(state=> state.user);
-
   return (
     <>
     <BrowserRouter>
@@ -48,7 +46,6 @@ function App() {
         <Route exect path='/my-booking' element={<ProtectRoute Component={ProfileInfo} isProtected={isAuthenticated}/>}></Route>
         <Route exect path='/settings' element={<ProtectRoute Component={ProfileInfo} isProtected={isAuthenticated}/>}></Route>
       </Routes>
-      <Footer/>
     </BrowserRouter>
     </>
   );

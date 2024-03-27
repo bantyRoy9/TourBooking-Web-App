@@ -1,28 +1,25 @@
 import React, { useEffect } from 'react'
-import { CgMouse } from "react-icons/cg";
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 // import { useAlert } from 'react-alert';
 import Form from '../../Components/layout/FilterForm/FilterForm';
-import Loading from '../../Components/layout/Loading/Loading';
-import MetaHead from '../../Components/layout/MetaHead'
-import { getAllTour } from '../../actions/tourAction';
 import TourCard from '../../Components/Cards/TourCard';
 import './home.css'
 import Alert from '../../Components/layout/Alert/Alert';
+import { getAllTour } from '../../Redux';
 
 const Home = () => {
     const dispatch = useDispatch();
-    const { error, tours } = useSelector((state) => state.tours)
+    const { error, tours } = useSelector((state) => state.tours);
     useEffect(() => {
         if (error) {
+            Alert(error,"E");
         }
-        !tours.length &&  dispatch(getAllTour())
-    }, [dispatch, error, alert])
+        tours && !tours.length &&  dispatch(getAllTour())
+    }, [])
     
     return (
             <>
-                <MetaHead title='Tour Booking App' />
                 <div className="banner">
                     <main className='home-slider'>
                         <div className="home-location"></div>
@@ -59,9 +56,9 @@ const Home = () => {
                 </div>
                 <div className="container" id="container">
 
-                    {tours && tours.map(tour => (
+                    {tours && tours.map((tour,idx) => (
                             <NavLink to={`/tour/${tour._id}`}>
-                            <TourCard tour={tour} />
+                            <TourCard tour={tour} keyIndex={`tour${idx}`}/>
                             </NavLink>
                     ))}
                 </div>
