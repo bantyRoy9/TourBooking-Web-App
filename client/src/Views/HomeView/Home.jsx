@@ -57,8 +57,8 @@ const Home = () => {
               <NavLink to={`/tour/${tour._id}`}>
                 <TourCard tour={tour} />
               </NavLink>
-            )) : <div style={{width:"100%",textAlign:'center',gridColumn:'1/-1',paddingBottom:'30px',color:'red'}}>
-                <h1>Tour Not Found</h1>
+            )) : <div className="notFound">
+                <h1>Tours Not Found</h1>
             </div>} 
         </div>
     </>

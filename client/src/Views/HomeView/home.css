@@ -300,8 +300,7 @@
 }
 
 .tourcard {
-  height: fit-content;
-  /* width: 30vmax; */
+  height: 100%;
 }
 
 .card__header {
@@ -386,13 +385,14 @@
 }
 
 .card__icon {
-  height: 1.5vmax;
-  width: 1.5vmax;
+  height: 1vmax;
+  width: 1vmax;
   fill: #55c57a;
 }
 
 .card__data span{
   white-space:nowrap;
+  font-size: 0.9vmax;
 }
 
 .heading-primary,

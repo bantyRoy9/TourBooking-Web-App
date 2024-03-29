@@ -197,3 +197,11 @@ input[type=number] {-moz-appearance: textfield;}
   right: 0;
   bottom: 0;
 }
+.notFound{
+  width:100%;
+  text-align:center;
+  grid-column:1/-1;
+  padding-bottom:30px;
+  color:red;
+  text-transform: capitalize;
+}
