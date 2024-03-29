@@ -6,6 +6,7 @@ name: Node.js CI/CD
 on:
   push:
     branches: [ "master" ]
+
 jobs:
   build:
     runs-on: self-hosted
@@ -15,15 +16,37 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Adjust permissions for node_modules
-      run: sudo chown -R $(whoami) ./node_modules || true
+
+    - name: Set ownership and permissions
+      run: |
+        sudo chown -R $(whoami):$(whoami) .
+        chmod -R u+rwX .
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: sudo npm ci
-    - run: | 
+
+    - name: Cleanup node_modules
+      run: sudo rm -rf ./node_modules
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Setup Environment File
+      run: |
         touch config.env
         echo "${{ secrets.PROD_ENV_FILE }}" > config.env
+
+    # Add any additional build, test, or deployment commands below
+    # For example:
+    # - run: npm run build
+    # - run: npm test
+
+    # This step restarts your application using PM2. Adjust as needed.
+    - name: Restart application with PM2
+      run: pm2 restart tourbooking
+      # Ensure you have PM2 setup to handle your specific application needs.
+
     - run: pm2 restart tourbooking
