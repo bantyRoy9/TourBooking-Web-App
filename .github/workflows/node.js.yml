@@ -39,14 +39,6 @@ jobs:
         touch config.env
         echo "${{ secrets.PROD_ENV_FILE }}" > config.env
 
-    # Add any additional build, test, or deployment commands below
-    # For example:
-    # - run: npm run build
-    # - run: npm test
-
-    # This step restarts your application using PM2. Adjust as needed.
     - name: Restart application with PM2
       run: pm2 restart tourbooking
-      # Ensure you have PM2 setup to handle your specific application needs.
-
     - run: pm2 restart tourbooking
