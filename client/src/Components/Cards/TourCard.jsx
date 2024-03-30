@@ -1,6 +1,6 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
 import moment from 'moment'
+import './../../Views/TourView/tour.css'
 const TourCard = ({tour,cardStyle,keyIndex}) => {
   return (
     <>
@@ -53,21 +53,7 @@ const TourCard = ({tour,cardStyle,keyIndex}) => {
               <span>{tour.maxGroupSize} people</span>
             </div>
           </div> 
-
-          {/* <div className="card__footer">
-            <p>
-              <span className="card__footer-value">₹{tour.price}</span>
-              <span className="card__footer-text"> per person</span>
-            </p>
-            <p className="card__ratings">
-              <span className="card__footer-value">{tour.ratingsAverage}</span>
-              <span className="card__footer-text"> rating ({tour.ratingsQuantity})</span>
-            </p>
-            <NavLink to={`/tour/${tour._id}`} className="btn btn--green btn--small">Details</NavLink>
-          </div> */}
-        </div>
-        
-    
+        </div>    
     </>
     )
 

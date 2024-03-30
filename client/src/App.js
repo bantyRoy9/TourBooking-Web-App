@@ -3,16 +3,15 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { load } from 'webfontloader'
 import { loadUser } from './Redux/Actions/userAction';
 import store from './Redux/store'
-import './App.css';
 import { Page404 } from './Views/PageNotFound';
 import { useSelector } from 'react-redux';
-
-const User = lazy(()=> import('./Components/User/User'));
+import './App.css';
+const User = lazy(()=> import('./Views/User/User'));
 const Home = lazy(()=>import('./Views/HomeView/Home'));
 const Header = lazy(()=>import('./Components/layout/Header/Header'));
-const Profile = lazy(()=>import('./Components/User/Profile/Profile'));
-const ProfileInfo = lazy(()=>import('./Components/User/Profile/ProfileInfo'));
-const ProfilePass = lazy(()=>import('./Components/User/Profile/ProfilePass'));
+const Profile = lazy(()=>import('./Views/User/Profile/Profile'));
+const ProfileInfo = lazy(()=>import('./Views/User/Profile/ProfileInfo'));
+const ProfilePass = lazy(()=>import('./Views/User/Profile/ProfilePass'));
 const ProtectRoute = lazy(()=>import('./Components/Routes/ProtectRoute'));
 const Product = lazy(()=>import('./Views/TourView/Tour'));
 const AllTour = lazy(()=>import('./Views/TourView/AllTour'));

@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300&display=swap');
 :root{
    --body-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    --background-image-gredient: linear-gradient(to right,#1976bc 0%,#8dc645 100%);
+   --title-font-family: 'Barlow Semi Condensed';
+   --head-bold-font-family: "Montserrat"; 
+   --background-image-gredient: linear-gradient(to right,#1976bc 0%,#8dc645 100%);
     --color-button-primery-background: #1976bc;
     --color-button-secondary-background: #8dc645;
 }
@@ -194,4 +196,12 @@ input[type=number] {-moz-appearance: textfield;}
   top: auto;
   right: 0;
   bottom: 0;
+}
+.notFound{
+  width:100%;
+  text-align:center;
+  grid-column:1/-1;
+  padding-bottom:30px;
+  color:red;
+  text-transform: capitalize;
 }

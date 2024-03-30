@@ -23,7 +23,7 @@ const ProtectRoute = ({ Component, isProtected, ...props }) => {
     transition={Bounce}
     />
         <Component {...props} />
-        {/* <Footer/> */}
+        <Footer/>
       </Suspense>
     </ErrorBoundary>
   ) : (

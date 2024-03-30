@@ -7,7 +7,8 @@ import { useSelector } from 'react-redux';
 import UserOption from './UserOption';
 import { navigationUrl } from '../../../Assests/json/navList'
 import Search from '../Search/Search'
-import User from '../../User/User'
+import User from '../../../Views/User/User';
+
 const option ={
   link1Padding:"1vmax",
   link2Margin:"0",
@@ -70,7 +71,7 @@ const Header = () => {
               {navigationUrl.map((el,idx)=>(
                 <li id={`menu-item-${idx}`} className='menu-left'>
                   {el.subPage.length ? <><div className='subToggle'></div></>:<></>}
-                  <NavLink to={el.pageUrl}>{el.name}</NavLink>
+                  <NavLink key={`navigationUrl${idx}`} to={el.pageUrl}>{el.name}</NavLink>
                   <ul className="sub-menu" style={{display:'none'}}>
                     {el.subPage.map((ele,i)=>(
                       <li id={`subMenu-item-${i}`}>

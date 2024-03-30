@@ -2,9 +2,9 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import './user.css'
-import Loader from '../layout/Loading/Loader'
-import Alert from '../layout/Alert/Alert'
 import { login, signUp } from '../../Redux'
+import Loading from '../../Components/layout/Loading/Loader'
+import Alert from '../../Components/layout/Alert/Alert'
 
 const User = ({isOpen,openModal}) => {
     const dispatch = useDispatch();
@@ -79,13 +79,9 @@ const User = ({isOpen,openModal}) => {
     };
     return (
          <>
-            <Loader propStyle = {loading?"block":"none"}/> 
+            <Loading propStyle = {loading?"block":"none"}/> 
             <div className={`loginSignupContainer ${isOpen}`}>
             <div className="close"><i className='fa-solid fa-xmark' onClick={closeModal}></i></div>
-
-                {/* <div className="bg"></div> */}
-                {/* <div className="bg bg2"></div> */}
-                {/* <div className="bg bg3"></div> */}
                 <div className="loginSignup-box">
                     <div>
                         <div className="loginSignup-toggle">

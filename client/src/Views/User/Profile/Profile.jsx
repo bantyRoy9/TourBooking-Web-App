@@ -2,10 +2,10 @@ import React from 'react'
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux'
 // import { useNavigate } from 'react-router-dom';
-import Loading from '../../layout/Loading/Loading';
 import './profile.css'
 // import { NavLink } from 'react-router-dom';
 import ProfileNav from './ProfileNav';
+import Loading from '../../../Components/layout/Loading/Loader';
 
 const Profile = () => {
     // const navigate = useNavigate();

@@ -59,14 +59,15 @@ const AllTour = () => {
           </section>
           <div className="allTour-form-container">
             <Form styles='allTour-form' />
+            <div className='categoriesContainer'>
             <div className="categories" >
               <strong onClick={changeActive}>Categories: <i className="fa-solid fa-caret-down"></i></strong>
               <div className={`categoriesItem ${catActive}`}>
-              <input type="radio" name='category' value={''} onClick={changeTour} />
-                  <label htmlFor={'category'}>All Tours</label>
+              <input type="radio" id='allTours' name='category' value={''} onClick={changeTour} />
+                  <label htmlFor={'allTours'}>All Tours</label>
               {categories.map((category,idx) => (
                 <>
-                  <input key={`input${idx}`} type="radio" name='category' value={category} onClick={(e) => {setCategory(e.target.value); setCatActive('') }} />
+                  <input key={`input${idx}`} id={category} type="radio" name='category' value={category} onClick={(e) => {setCategory(e.target.value); setCatActive('') }} />
                   <label key={`label${idx}`} htmlFor={category}> {category}</label><br />
                 </>
               ))}
@@ -93,9 +94,10 @@ const AllTour = () => {
                 </Select>
               </FormControl>
             </div>
+            </div>
           </div>
           <div className="container" id="container">
-            {tours && tours.length === 0 ? <h1>Sorry! Not Found ({category}) </h1> : <>
+            {tours && tours.length === 0 ? <div className='notFound'><h1>Tours Not Found! </h1></div> : <>
             {tours && tours.map((tour,idx) => (
               <NavLink key={`{navLink${idx}`} to={`/tour/${tour._id}`}>
                 <TourCard tour={tour} cardStyle='tourcard' keyIndex={`tour${idx}`}/>
