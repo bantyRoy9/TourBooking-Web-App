@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "./footer.css";
 const Footer = () => {
   return (
-    <>
       <div className="footer-container">
         <hr />
         <div className="footer">
@@ -159,7 +158,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </>
   );
 };
 
