@@ -8,6 +8,7 @@
     height: fit-content;
     display: flex;
     justify-content: space-between;
+    flex-direction: row;
     padding: 50px 20px;
 }
 .footer>div{
