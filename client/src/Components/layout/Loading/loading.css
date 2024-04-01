@@ -3,7 +3,8 @@
     height:100vh;
     background-image: var(--background-image-gredient) ;
     /* opacity: .6; */
-    position: absolute;
+    position: fixed;
+    overflow: hidden;
     top: 0;
     left: 0;
     right: 0;

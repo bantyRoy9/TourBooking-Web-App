@@ -1,20 +1,14 @@
 import React, { useEffect } from "react";
+import { TourCard, FilterForm as Form,Alert} from "../../Components";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-// import { useAlert } from 'react-alert';
-import Form from "../../Components/layout/FilterForm/FilterForm";
-import TourCard from "../../Components/Cards/TourCard";
-import "./home.css";
-import Alert from "../../Components/layout/Alert/Alert";
 import { getAllTour } from "../../Redux";
-
+import "./home.css";
 const Home = () => {
   const dispatch = useDispatch();
   const { error, tours } = useSelector((state) => state.tours);
   useEffect(() => {
-    if (error) {
-      Alert(error, "E");
-    }
+    error &&  Alert(error, "E");
     tours && !tours.length && dispatch(getAllTour());
   }, []);
 
