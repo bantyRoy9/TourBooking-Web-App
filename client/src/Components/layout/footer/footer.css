@@ -26,7 +26,7 @@
 
 }
 .footer p:hover{
-    color: #ffff;
+    color: var(--text-hover-color);
 }
 @media only screen and (max-width:600px) {
     .footer{

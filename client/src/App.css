@@ -6,6 +6,7 @@
    --background-image-gredient: linear-gradient(to right,#1976bc 0%,#8dc645 100%);
     --color-button-primery-background: #1976bc;
     --color-button-secondary-background: #8dc645;
+    --text-hover-color:#1976bc;
 }
 *,*::after,*::before{
   margin: 0;

@@ -1,6 +1,5 @@
 import React from 'react'
 import MapBox, { displayMap } from '../../layout/MapBox/MapBox'
-import './tourlocation.css'
 
     var location =[
         {

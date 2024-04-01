@@ -1,9 +1,9 @@
 import React, { Suspense } from "react";
 import { Navigate } from "react-router-dom";
-import ErrorBoundary from "../layout/error/ErrorBoundary";
 import Loader from "../layout/Loading/Loading";
 import { Bounce, ToastContainer } from "react-toastify";
 import Footer from "../layout/footer/Footer";
+import ErrorBoundary from "../layout/Error/ErrorBoundary";
 
 const ProtectRoute = ({ Component, isProtected, ...props }) => {
   return isProtected ? (
