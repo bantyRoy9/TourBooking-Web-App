@@ -49,7 +49,7 @@ const option ={
   cartIconMargin: "1vmax",
 
 }
-const Header = () => {
+export default function Header(){
 
   const {user,isAuthenticated,error} = useSelector(state=>state.user);
   const [modelOpen, setmodelOpen] = useState('cloase')
@@ -98,5 +98,3 @@ const Header = () => {
       </>
   )
 }
-
-export default Header

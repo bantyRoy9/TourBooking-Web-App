@@ -1,6 +1,5 @@
 import React from 'react'
 import moment from 'moment'
-import './../../Views/TourView/tour.css'
 const TourCard = ({tour,cardStyle,keyIndex}) => {
   return (
     <>
