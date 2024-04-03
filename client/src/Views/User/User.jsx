@@ -10,10 +10,6 @@ const User = ({ isOpen, openModal }) => {
     switcherTab = useRef(null),
     signupTab = useRef(null),
     loginTab = useRef(null),
-    [loginEmail, setLoginEmail] = useState(""),
-    [loginPassword, setLoginPassword] = useState(""),
-    [avatarPreview, setAvatarPreview] = useState("/Profile.png"),
-    [avatar, setAvatar] = useState("/Profile.png"),
     [user, setUser] = useState({}),
     { loading, isAuthenticated, error } = useSelector((state) => state.user);
 
@@ -21,7 +17,7 @@ const User = ({ isOpen, openModal }) => {
   useEffect(() => {
     isAuthenticated && openModal("close");
     error && Alert(error, "E");
-  }, [isAuthenticated]);
+  }, [isAuthenticated,error]);
 
   const submitHandler = (e,submitType)=>{
     e.preventDefault();
@@ -40,8 +36,8 @@ const User = ({ isOpen, openModal }) => {
       const reader = new FileReader();
       reader.onload = () => {
         if (reader.readyState === 2) {
-          setAvatarPreview(reader.result);
-          setAvatar(reader.result);
+          //setAvatarPreview(reader.result);
+        //  setAvatar(reader.result);
         }
       };
       reader.readAsDataURL(e.targer.files[0]);
@@ -179,7 +175,7 @@ const User = ({ isOpen, openModal }) => {
               />
             </div>
             <div className="col-md-12" style={{width:"100%"}} >
-                <button type="submit" style={{width:"100%"}} className="btn btn-primary col-md-12 blink">Sign up</button>
+                <button type="submit" style={{width:"100%"}} className="btn btn-primary col-md-12">Sign up</button>
             </div>
           </form>
         </div>
