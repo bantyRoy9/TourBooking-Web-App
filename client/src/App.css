@@ -76,6 +76,14 @@ a{
 ul{
   list-style: none;
 }
+.section{
+  transition: transform 1s, opacity 1s;
+}
+.section--hidden{
+  opacity: 0;
+  transform: translateY(8rem);
+}
+
 .btn,
   .btn:link,
   .btn:visited {
