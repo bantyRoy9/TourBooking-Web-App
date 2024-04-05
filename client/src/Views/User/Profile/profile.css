@@ -104,6 +104,7 @@
     background-color: rgba(31, 29, 29, 0.089);
     border-radius: 5px;
     width: 100%;
+    padding-left: 50px !important;
 }
 .profile-info-container i{
     position: absolute;
