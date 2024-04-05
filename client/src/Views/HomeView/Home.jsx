@@ -8,7 +8,6 @@ import "./home.css";
 const Home = () => {
   const dispatch = useDispatch();
   const { error, tours } = useSelector((state) => state.tours);
-
   const containerRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -25,7 +24,6 @@ const Home = () => {
       root: null,
       threshold: 0.15,
     });
-
     if (containerRef.current) {
       sectionObserver.observe(containerRef.current);
     }
@@ -33,7 +31,7 @@ const Home = () => {
     return () => {
       sectionObserver.disconnect();
     };
-  }, [dispatch, error, tours]);
+  }, []);
 
   return (
     <>
@@ -58,7 +56,10 @@ const Home = () => {
         <span>Search Tours</span>
         <Form styles="home-form" />
       </div>
-      <section ref={containerRef} className={`section ${isVisible ? "" : "section--hidden"} homeHeading`}>
+      <section
+        ref={containerRef}
+        className={`section ${isVisible ? "" : "section--hidden"} homeHeading`}
+      >
         <span>GREAT PLACES TO VISIT</span>
         <h1>
           Search <b className="spans">and Enjoy!</b>
