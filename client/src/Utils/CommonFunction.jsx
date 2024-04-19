@@ -5,7 +5,7 @@ export const applicationUrl =()=>{
         URL = process.env.REACT_APP_PROD_URL;
     }
     if(process.env.NODE_ENV === 'development'){
-        URL = process.env.REACT_APP_DEV_URL
+        // URL = process.env.REACT_APP_DEV_URL
     }
     return URL;    
 }

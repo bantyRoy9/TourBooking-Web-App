@@ -8,19 +8,15 @@ const path = require('path');
 const hpp = require('hpp');
 const cors = require('cors');
 const bodyParser = require('body-parser')
-
+const dotenv = require('dotenv')
 const globleErrorHandler = require('./controller/errorController');
 const AppError = require('./utils/appError');
 
 const app = express();
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
-let allowOrigin = ["https://devtourbookingapp.netlify.app","https:tourbooking.banti.cloud","http://localhost:3001","http://localhost:3000"];
-const environment = process.env.NODE_ENV;
-if(environment === 'development'){
-    allowOrigin = ["http://localhost:3001","http://localhost:3000"]
-}
-
+dotenv.config({path:'./config.env'})
+let allowOrigin =JSON.parse(process.env[`ALLOWORIGIN_${process.env.NODE_ENV}`])
 app.use(cors({
     origin: function(origin,callback){
         if(allowOrigin.includes(origin) || !origin){
@@ -64,6 +60,7 @@ const userRouter = require('./routes/userRoutes');
 const reviewRouter = require('./routes/reviewRouter');
 const viewRouter = require('./routes/viewRouter');
 const bookingRouter = require('./routes/bookingRouter');
+const { log } = require('console');
 
 app.use('/', viewRouter);
 app.use('/api2/v1/tours', tourRouter);

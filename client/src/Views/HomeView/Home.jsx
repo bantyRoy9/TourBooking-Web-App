@@ -14,7 +14,6 @@ const Home = () => {
   useEffect(() => {
     error && Alert(error, "E");
     tours && !tours.length && dispatch(getAllTour());
-
     const revealSection = (entries) => {
       const [entry] = entries;
       setIsVisible(entry.isIntersecting);
@@ -47,7 +46,7 @@ const Home = () => {
               <button className="des-btn">Discover </button>
             </NavLink>
             <NavLink to="/booking">
-              <button className="book-btn">Book Your Trip </button>
+              <button className="book-btn">Book your trip </button>
             </NavLink>
           </div>
         </main>
@@ -56,24 +55,12 @@ const Home = () => {
         <span>Search Tours</span>
         <Form styles="home-form" />
       </div>
-      <section
-        ref={containerRef}
-        className={`section ${isVisible ? "" : "section--hidden"} homeHeading`}
-      >
+      <section className='homeHeading'>
         <span>GREAT PLACES TO VISIT</span>
-        <h1>
-          Search <b className="spans">and Enjoy!</b>
-        </h1>
-        <span>
-          Compellingly embrace empowered e-business after user friendly
-          intellectual capital. Interactively actualize front-end processes with
-          effective convergence.
-        </span>
+        <h1>Search <b className="spans">and Enjoy!</b></h1>
+        <span> Compellingly embrace empowered e-business after user friendly intellectual capital. Interactively actualize front-end processes witheffective convergence.</span>
       </section>
-      <section
-        ref={containerRef}
-        className={`section ${isVisible ? "" : "section--hidden"} container`}
-      >
+      <section ref={containerRef} className={`section ${isVisible ? "" : "section--hidden"} container`}>
         {tours && tours.length ? (
           tours.map((tour) => (
             <NavLink key={tour._id} to={`/tour/${tour._id}`}>
@@ -82,7 +69,7 @@ const Home = () => {
           ))
         ) : (
           <div className="notFound">
-            <h1>Tours Not Found</h1>
+            <h1>Tour not found</h1>
           </div>
         )}
       </section>
