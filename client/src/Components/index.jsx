@@ -16,6 +16,7 @@ import Loading from "./layout/Loading/Loading";
 import MapBox from "./layout/MapBox/MapBox";
 import Search from "./layout/Search/Search";
 import Footer from "./layout/footer/Footer";
+import Button from "./layout/Button/Button";
 
 export {
   Header,
@@ -36,4 +37,5 @@ export {
   MapBox,
   Search,
   Footer,
+  Button
 };

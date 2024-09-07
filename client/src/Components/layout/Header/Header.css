@@ -65,6 +65,7 @@ nav .logoSection img{
     font-weight: 550;
     letter-spacing: -.03em;
     transition: all .5s;
+    display: block;
 }
 
 .navlist>ul>li>a.active{
@@ -75,7 +76,6 @@ nav .logoSection img{
     color: yellowgreen;
     border-bottom: 1px solid;
     transition: all .5ms;
-    padding: 10px 20px;
 }
 .navlist>ul>li>ul{
     position: absolute;
@@ -131,7 +131,7 @@ nav .logoSection img{
     position: absolute;
     right: 0;
     bottom: 0;
-    height: 3px;
+    height: 2px;
     width: 0;
     background: rgb(197, 48, 48);
     background: linear-gradient(to right,#1976bc 0%,#8dc645 100%);
@@ -146,7 +146,8 @@ nav .logoSection img{
     background: linear-gradient(to right,#1976bc 0%,#8dc645 100%);
     transition: width .35s ease;
 }
-.navlist>ul>li:hover{
+
+.navlist>ul>li>a:hover{
     transition: all .5ms;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 5px;
     cursor: pointer;

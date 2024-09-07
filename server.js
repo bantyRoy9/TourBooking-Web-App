@@ -1,12 +1,10 @@
 const mongoose = require('mongoose');
-const dotenv = require('dotenv');
 const app = require('./app');
-
 const environment = process.env.NODE_ENV;
-
-dotenv.config({ path:'./config.env' })
-
-const DB = process.env.DATABASE_URL
+let DB = process.env.DATABASE_URL
+if(environment === 'development'){
+    DB = process.env.DATABASE_LOCAL
+}
 mongoose.connect(DB).then(con=> {
     console.log('database is connected');
 });
